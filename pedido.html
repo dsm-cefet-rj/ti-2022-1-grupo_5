@@ -5,17 +5,108 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Esfiháiéié - Pedido</title>
+        <link rel="stylesheet" href="./css/main.css">
     </head>
     <body>
         <header>
             <nav>
+                <a href="#">Menu</a>
                 <a href="./index.html">Logo</a>
+                <a href="#">Login</a>
                 <a href="./pedido.html">Carrinho</a>
             </nav>
 
         </header>
 
         <main>
+            <h2>Carrinho de Compras</h2>
+            <form>
+                <section>
+                    <h3>Frango com catupiry</h3>
+                    <span>R$5,00</span>
+                    <input type="button" value="-">
+                    <input type="number" name="" id="" value="3">
+                    <input type="button" value="+">
+                </section>
+    
+                <section>
+                    <h3>Chocolate com confete</h3>
+                    <span>R$6,00</span>
+                    <input type="button" value="-">
+                    <input type="number" name="" id="" value="1">
+                    <input type="button" value="+">
+                </section>
+    
+                <label for="frete">Frete</label>
+                <input type="text" name="frete" id="frete" placeholder="_____-___">
+                <input type="button" value="Calcular">
+    
+                <h3>Resumo do pedido</h3>
+    
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Valor Unitário</th>
+                            <th>Qtd</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                        <tr>
+                            <td>Frango com catupiry</td>
+                            <td>R$5,00</td>
+                            <td>3</td>
+                            <td>R$15,00</td>
+                        </tr>
+                        <tr>
+                            <td>Chocolate com confete</td>
+                            <td>R$6,00</td>
+                            <td>1</td>
+                            <td>R$6,00</td>
+                        </tr>
+                    </tbody>
+    
+                    <tfoot>
+                        <tr>
+                            <td><strong>Subtotal</strong></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>R$21,00</td>
+                        </tr>
+                    </tfoot>
+    
+                </table>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Frete</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Meier</td>
+                            <td>R$5,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table>
+                    <tr>
+                        <td><strong>Total</strong></td>
+                        <td>R$26,00</td>
+                    </tr>
+                </table>
+
+                <h3>Forma de pagamento</h3>
+                <input type="radio" name="formaPagamento" id="formaPagamento">
+                <span>Pix</span>
+
+                <input type="submit" value="Finalizar pedido">
+            </form>
 
         </main>
 

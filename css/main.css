@@ -1,0 +1,14 @@
+section {
+    border: 1px solid #000;
+    border-radius: 2px;
+}
+
+table {
+    border: 1px solid #000;
+    border-radius: 2px;
+}
+
+input[type=button],
+input[type=submit] {
+    display: block;
+}
