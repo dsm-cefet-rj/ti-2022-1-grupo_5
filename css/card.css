@@ -8,3 +8,9 @@
 .card__img {
     background-color: var(--cinza-claro);
 }
+
+/* Pedido */
+
+.pedido__form-section .card {
+    width: 180px;
+}

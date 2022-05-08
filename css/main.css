@@ -79,13 +79,18 @@ header a, header a:hover {
 
 table {
     background-color: var(--cinza-claro);
+    border-collapse: separate;
     border-radius: 2px;
-    padding: 20px;
+    border-spacing: 10px;
     text-align: center;
 }
 
-table thead {
-    border-bottom: 1px solid;
+table tr {
+    border-bottom: 1px solid #000;
+}
+
+input {
+    cursor: pointer;
 }
 
 

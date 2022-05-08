@@ -67,33 +67,60 @@
         </header>
 
         <main class="container pedido py-4">
-            <h2>Carrinho de Compras</h2>
+            <h2>Pedido</h2>
+
             <form class="pedido__form">
+
                 <section class="pedido__form-section">
-                    <section>
-                        <h3>Frango com catupiry</h3>
-                        <span>R$5,00</span>
-                        <input type="button" value="-">
-                        <input type="number" name="" id="" value="3">
-                        <input type="button" value="+">
+                    <section class="menu-esfihas my-2">
+                        <section class="d-flex justify-content-around flex-wrap">    
+                            <section class="card shadow-lg m-4">
+                                <img src="./img/esfiha-frango-catupiry.png" class="card-img-top card__img" alt="...">
+                                <section class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Frango com catupiry</h5>
+                                    <p>R$5,00</p>
+                                    <section class="d-flex justify-content-between pedido__qtd">
+                                        <article class="d-flex">
+                                            <input type="button" class="botao" value="-">
+                                            <input type="number" name="" id="" value="3" min="0">
+                                            <input type="button" class="botao" value="+">
+                                        </article>
+                                        <button class="botao"><i class="bi bi-trash3 pedido__qtd__lixo"></i></button>
+                                    </section>
+                                </section>
+                            </section>
+        
+                            <section class="card shadow-lg m-4">
+                                <img src="./img/esfiha-chocolate-confete.png" class="card-img-top card__img" alt="...">
+                                <section class="card-body d-flex flex-column">
+                                    <h5 class="card-title">Chocolate com confete</h5>
+                                    <p>R$6,00</p>
+                                    <section class="d-flex justify-content-between pedido__qtd">
+                                        <article class="d-flex">
+                                            <input type="button" class="botao" value="-">
+                                            <input type="number" name="" id="" value="1" min="0">
+                                            <input type="button" class="botao" value="+">
+                                        </article>
+                                        <button class="botao"><i class="bi bi-trash3 pedido__qtd__lixo"></i></button>
+                                    </section>
+                                </section>
+                            </section>
+                            
+                        </section>
+                    </section>
+
+                    <section class="pedido__frete d-flex mx-5">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control form-control-sm" id="frete" placeholder="_____-___">
+                            <label for="frete">Frete</label>
+                        </div>
                     </section>
         
-                    <section>
-                        <h3>Chocolate com confete</h3>
-                        <span>R$6,00</span>
-                        <input type="button" value="-">
-                        <input type="number" name="" id="" value="1">
-                        <input type="button" value="+">
-                    </section>
-        
-                    <label for="frete">Frete</label>
-                    <input type="text" name="frete" id="frete" placeholder="_____-___">
-                    <input type="button" value="Calcular">
 
                 </section>
 
                 <section class="pedido__form-section">
-                    <h3>Resumo do pedido</h3>
+                    <h3>Resumo</h3>
         
                     <table>
                         <thead>
@@ -152,13 +179,6 @@
                             <td>R$26,00</td>
                         </tr>
                     </table>
-
-                </section>
-
-                <section class="pedido__form-section">
-                    <h3>Forma de pagamento</h3>
-                    <input type="radio" name="formaPagamento" id="formaPagamento">
-                    <span>Pix</span>
 
                 </section>
                 

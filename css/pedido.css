@@ -18,3 +18,16 @@
     flex-direction: column;
     gap: 30px;  
 }
+
+.pedido__qtd input[type=number] {
+    text-align: center;
+    width: 30px;
+}
+
+.pedido__qtd button {
+    background-color: var(--azul-nav);
+}
+
+.pedido__qtd__lixo {
+    font-size: 1rem;
+}
