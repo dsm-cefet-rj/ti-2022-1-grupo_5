@@ -1,0 +1,20 @@
+.pedido {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pedido__form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; 
+}
+
+.pedido__form-section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;  
+}

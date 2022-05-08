@@ -1,0 +1,10 @@
+.card {
+    background-color: var(--azul-card);
+    display: inline-block;
+    padding: 0;
+    width: 280px;
+}
+
+.card__img {
+    background-color: var(--cinza-claro);
+}

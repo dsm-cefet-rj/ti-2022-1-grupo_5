@@ -4,119 +4,189 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Esfiháiéié - Pedido</title>
+        <title>Esfiháiéié</title>
+        <link rel="shortcut icon" href="./img/logo.jpg" type="image/x-icon">
+        
+        <!-- Google Fonts - Roboto, Montserrat e Open Sans -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;600;700&display=swap" rel="stylesheet">
+        
+        <!-- Bootstrap v5.1 & Bootstrap Icons v1.8.0 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+        <!-- Css do Projeto -->
         <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/menu.css">
+        <link rel="stylesheet" href="./css/menu-esfihas.css">
+        <link rel="stylesheet" href="./css/card.css">
+        <link rel="stylesheet" href="./css/rodape.css">
+        <link rel="stylesheet" href="./css/pedido.css">
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+        <!-- JS do Projeto -->
+        <script src="./js/main.js" defer></script>
     </head>
+
     <body>
         <header>
-            <nav>
-                <a href="#">Menu</a>
-                <a href="./index.html">Logo</a>
-                <a href="#">Login</a>
-                <a href="./pedido.html">Carrinho</a>
+            <nav class="navbar container-fluid shadow navbar-light py-2">
+                <section class="menu__section">
+                    <i class="bi bi-list" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"></i>
+                    <a href="./index.html"><span>Esfiháiéié</span></a>
+                </section>
+
+                <section class="menu__section">
+                    <span>Login ></span>
+                    <i class="bi bi-person"></i>
+                    <a href="./pedido.html" class="position-relative">
+                        <i class="bi bi-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+                    </a>
+                </section>
+
+                <section class="offcanvas offcanvas-start menu__canvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <section class="offcanvas-header">
+                        <i class="bi bi-x-lg" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+                    </section>
+
+                    <section class="offcanvas-body">
+                        <ul class="menu__lista">
+                            <li class="menu__item"><a href="#">Login</a></li>
+                            <li class="menu__item"><a href="./esfihas-salgadas.html">Esfihas Salgadas</a></li>
+                            <li class="menu__item"><a href="./esfihas-doces.html">Esfihas Doces</a></li>
+                            <li class="menu__item"><a href="./pedido.html">Pedido</a></li>
+                        </ul>
+                    </section>
+                </section>
             </nav>
 
         </header>
 
-        <main>
+        <main class="container pedido py-4">
             <h2>Carrinho de Compras</h2>
-            <form>
-                <section>
-                    <h3>Frango com catupiry</h3>
-                    <span>R$5,00</span>
-                    <input type="button" value="-">
-                    <input type="number" name="" id="" value="3">
-                    <input type="button" value="+">
+            <form class="pedido__form">
+                <section class="pedido__form-section">
+                    <section>
+                        <h3>Frango com catupiry</h3>
+                        <span>R$5,00</span>
+                        <input type="button" value="-">
+                        <input type="number" name="" id="" value="3">
+                        <input type="button" value="+">
+                    </section>
+        
+                    <section>
+                        <h3>Chocolate com confete</h3>
+                        <span>R$6,00</span>
+                        <input type="button" value="-">
+                        <input type="number" name="" id="" value="1">
+                        <input type="button" value="+">
+                    </section>
+        
+                    <label for="frete">Frete</label>
+                    <input type="text" name="frete" id="frete" placeholder="_____-___">
+                    <input type="button" value="Calcular">
+
                 </section>
+
+                <section class="pedido__form-section">
+                    <h3>Resumo do pedido</h3>
+        
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Un.</th>
+                                <th>Qtd</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+        
+                        <tbody>
+                            <tr>
+                                <td>Frango com catupiry</td>
+                                <td>R$5,00</td>
+                                <td>3</td>
+                                <td>R$15,00</td>
+                            </tr>
+                            <tr>
+                                <td>Chocolate com confete</td>
+                                <td>R$6,00</td>
+                                <td>1</td>
+                                <td>R$6,00</td>
+                            </tr>
+                        </tbody>
+        
+                        <tfoot>
+                            <tr>
+                                <td><strong>Subtotal</strong></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>R$21,00</td>
+                            </tr>
+                        </tfoot>
+        
+                    </table>
     
-                <section>
-                    <h3>Chocolate com confete</h3>
-                    <span>R$6,00</span>
-                    <input type="button" value="-">
-                    <input type="number" name="" id="" value="1">
-                    <input type="button" value="+">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Frete</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Meier</td>
+                                <td>R$5,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                    <table>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td>R$26,00</td>
+                        </tr>
+                    </table>
+
                 </section>
-    
-                <label for="frete">Frete</label>
-                <input type="text" name="frete" id="frete" placeholder="_____-___">
-                <input type="button" value="Calcular">
-    
-                <h3>Resumo do pedido</h3>
-    
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Valor Unitário</th>
-                            <th>Qtd</th>
-                            <th>Total</th>
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        <tr>
-                            <td>Frango com catupiry</td>
-                            <td>R$5,00</td>
-                            <td>3</td>
-                            <td>R$15,00</td>
-                        </tr>
-                        <tr>
-                            <td>Chocolate com confete</td>
-                            <td>R$6,00</td>
-                            <td>1</td>
-                            <td>R$6,00</td>
-                        </tr>
-                    </tbody>
-    
-                    <tfoot>
-                        <tr>
-                            <td><strong>Subtotal</strong></td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>R$21,00</td>
-                        </tr>
-                    </tfoot>
-    
-                </table>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Frete</th>
-                            <th>Valor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Meier</td>
-                            <td>R$5,00</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <section class="pedido__form-section">
+                    <h3>Forma de pagamento</h3>
+                    <input type="radio" name="formaPagamento" id="formaPagamento">
+                    <span>Pix</span>
 
-                <table>
-                    <tr>
-                        <td><strong>Total</strong></td>
-                        <td>R$26,00</td>
-                    </tr>
-                </table>
-
-                <h3>Forma de pagamento</h3>
-                <input type="radio" name="formaPagamento" id="formaPagamento">
-                <span>Pix</span>
-
-                <input type="submit" value="Finalizar pedido">
+                </section>
+                
+                <button type="submit" class="botao"><i class="bi bi-bag-check-fill botao__icon"></i>Finalizar pedido</button>
             </form>
 
         </main>
 
         <footer>
-            <h2>Contato</h2>
-            <p>Av. Maracanã, 229, Pavilhão 1
-                Maracanã – Rio de Janeiro/RJ     
-                CEP: 20271-110</p>
-            <small>©2022 Delivery de Esfihas</small>
+            <section class="row rodape">
+                <section class="col-6 d-flex py-4 flex-column align-items-center justify-content-around rounded">
+                    <img src="./img/logo.jpg" class="rodape__img" alt="Logo do Esfiháiéié">
+                </section>
+
+                <section class="col-6 d-flex py-4 flex-column align-items-center justify-content-around rodape__contato">
+                    <h2>Contato</h2>
+                    <p class="rodape__contato-endereco">Av. Maracanã, 229, Pavilhão 1 <br> Maracanã – Rio de Janeiro/RJ <br></p>
+                    <p class="rodape__contato-endereco">CEP: 20271-110</p>
+                </section>
+
+                <section class="col-md-12 d-flex flex-column align-items-center justify-content-around">
+                    <small>©2022 Delivery de Esfihas</small>
+                </section>
+
+            </section>
+
         </footer>
 
     </body>
+
 </html>
