@@ -1,0 +1,13 @@
+.menu-esfihas__titulo {
+    color: var(--branco);
+    text-align: center;
+}
+
+.menu-esfihas__ver-mais {
+    background-color: var(--verde);
+    color: var(--preto);
+    display: block;
+    font-family: var(--fonte-funcionalidades);
+    margin: 0 auto;
+    width: 100px;
+}

@@ -1,0 +1,120 @@
+:root {
+    --azul-card: #3282B8;
+    --azul-footer: #BBE1FA;
+    --azul-main: #0F4C75;
+    --azul-nav: #1B262C;
+    --azul-titulo: #A8D8EA;
+    --branco: #FDFDFD;
+    --cinza-claro: #EEE;
+    --preto: #000;
+    --verde: #92BA92;
+
+    --fonte-funcionalidades: 'Roboto', sans-serif;
+    --fonte-conteudo: 'Open Sans', sans-serif;
+    --fonte-titulo: 'Montserrat', sans-serif;
+}
+
+
+/* Template de estrutura */
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--azul-main);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fonte-conteudo);
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    user-select: none;
+}
+
+header {
+    background-color: var(--azul-nav);
+    color: var(--cinza-claro);
+    font-family: var(--fonte-funcionalidades);
+    user-select: none;
+}
+
+main {
+    flex-grow: 1; 
+}
+
+footer {
+    background-color: var(--azul-footer);
+}
+
+
+/* Template de elementos */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--azul-titulo);
+    font-family: var(--fonte-titulo);
+}
+
+p {
+    color: var(--branco);
+    text-align: justify;
+}
+
+i {
+    font-size: 2rem;
+}
+
+i.bi-list {
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+
+i.bi-x-lg {
+    cursor: pointer;
+}
+
+header a, header a:hover {
+    color: var(--cinza-claro);
+}
+
+table {
+    background-color: var(--cinza-claro);
+    border-collapse: separate;
+    border-radius: 2px;
+    border-spacing: 10px;
+    text-align: center;
+}
+
+table tr {
+    border-bottom: 1px solid #000;
+}
+
+input {
+    cursor: pointer;
+}
+
+
+/* Classes gerais */
+
+.botao {
+    background-color: var(--verde);
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px var(--preto);
+    color: var(--branco);
+    font-family: var(--fonte-funcionalidades);
+    font-size: 1rem;
+    padding: 0.2rem 0.7rem;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.botao:hover {
+    box-shadow: 0 1px 4px var(--preto);
+    color: var(--branco);
+}
+
+.botao__icon {
+    font-size: 1.2rem;
+    padding-right: .3rem;
+}
