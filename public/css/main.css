@@ -29,6 +29,7 @@ body {
     min-height: 100vh;
     max-width: 100vw;
     overflow-x: hidden;
+    padding: 0 !important;
     user-select: none;
 }
 
@@ -45,6 +46,27 @@ main {
 
 footer {
     background-color: var(--azul-footer);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: #eee; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #999; 
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #777; 
 }
 
 
@@ -91,6 +113,12 @@ table tr {
 
 input {
     cursor: pointer;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 

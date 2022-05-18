@@ -28,5 +28,6 @@
 }
 
 .menu__item a {
+    display: block;
     text-decoration: none;
 }
