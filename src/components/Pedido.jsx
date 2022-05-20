@@ -18,7 +18,7 @@ export default function Pedido() {
                 <section className="pedido__form-section">
                     <section className="menu-esfihas my-2">
                         <section className="d-flex justify-content-around flex-wrap">    
-                            <section className="card shadow-lg m-4">
+                            <section className="card m-4">
                                 <img src={frangoCatupiry} className="card-img-top card__img" alt="..."/>
                                 <section className="card-body d-flex flex-column">
                                     <h5 className="card-title">Frango com catupiry</h5>
@@ -34,7 +34,7 @@ export default function Pedido() {
                                 </section>
                             </section>
         
-                            <section className="card shadow-lg m-4">
+                            <section className="card m-4">
                                 <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
                                 <section className="card-body d-flex flex-column">
                                     <h5 className="card-title">Chocolate com confete</h5>
@@ -89,41 +89,41 @@ export default function Pedido() {
                                 <td>1</td>
                                 <td>R$6,00</td>
                             </tr>
-                        </tbody>
-        
-                        <tfoot>
                             <tr>
                                 <td><strong>Subtotal</strong></td>
                                 <td>-</td>
                                 <td>-</td>
                                 <td>R$21,00</td>
                             </tr>
-                        </tfoot>
-        
-                    </table>
-
-                    <table>
-                        <thead>
                             <tr>
-                                <th>Frete</th>
-                                <th>Valor</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
-                        </thead>
-                        <tbody>
                             <tr>
-                                <td>Meier</td>
-                                <td>R$5,00</td>
+                                <td>Frete</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>R$6,00</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </tbody>
-                    </table>
-
-                    <table>
-                        <tbody>
+        
+                        <tfoot>
                             <tr>
                                 <td><strong>Total</strong></td>
+                                <td>-</td>
+                                <td>-</td>
                                 <td>R$26,00</td>
                             </tr>
-                        </tbody>
+                        </tfoot>
+        
                     </table>
 
                 </section>

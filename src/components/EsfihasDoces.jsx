@@ -14,7 +14,7 @@ export default function EsfihasDoces() {
         <section className="menu-esfihas my-5">
             <h2 className="menu-esfihas__titulo">Esfihas Doces</h2>
             <section className="d-flex justify-content-around flex-wrap">    
-                <section className="card shadow-lg m-4">
+                <section className="card m-4">
                     <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
                     <section className="card-body d-flex flex-column">
                         <h5 className="card-title">Chocolate com confete</h5>
@@ -23,7 +23,7 @@ export default function EsfihasDoces() {
                     </section>
                 </section>
 
-                <section className="card shadow-lg m-4">
+                <section className="card m-4">
                     <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
                     <section className="card-body d-flex flex-column">
                         <h5 className="card-title">Chocolate com confete</h5>
@@ -31,7 +31,7 @@ export default function EsfihasDoces() {
                         <Link to='/pedido' className="botao align-self-center"><i className="bi bi-cart-plus botao__icon"></i>Comprar</Link>
                     </section>
                 </section>
-                <section className="card shadow-lg m-4">
+                <section className="card m-4">
                     <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
                     <section className="card-body d-flex flex-column">
                         <h5 className="card-title">Chocolate com confete</h5>
@@ -39,7 +39,7 @@ export default function EsfihasDoces() {
                         <Link to='/pedido' className="botao align-self-center"><i className="bi bi-cart-plus botao__icon"></i>Comprar</Link>
                     </section>
                 </section>
-                <section className="card shadow-lg m-4">
+                <section className="card m-4">
                     <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
                     <section className="card-body d-flex flex-column">
                         <h5 className="card-title">Chocolate com confete</h5>
@@ -47,7 +47,7 @@ export default function EsfihasDoces() {
                         <Link to='/pedido' className="botao align-self-center"><i className="bi bi-cart-plus botao__icon"></i>Comprar</Link>
                     </section>
                 </section>
-                <section className="card shadow-lg m-4">
+                <section className="card m-4">
                     <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
                     <section className="card-body d-flex flex-column">
                         <h5 className="card-title">Chocolate com confete</h5>
@@ -55,7 +55,7 @@ export default function EsfihasDoces() {
                         <Link to='/pedido' className="botao align-self-center"><i className="bi bi-cart-plus botao__icon"></i>Comprar</Link>
                     </section>
                 </section>
-                <section className="card shadow-lg m-4">
+                <section className="card m-4">
                     <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
                     <section className="card-body d-flex flex-column">
                         <h5 className="card-title">Chocolate com confete</h5>

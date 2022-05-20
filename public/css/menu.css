@@ -4,6 +4,10 @@
     gap: 0.7rem;
 }
 
+.menu__logo {
+    width: 60px;
+}
+
 .menu__canvas {
     background-color: var(--azul-nav);
 }

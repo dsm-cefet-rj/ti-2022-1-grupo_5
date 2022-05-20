@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import logo from '../img/logo3.jpg';
+import logo from '../img/logo.jpg';
 
 function Header(){
     const qtdPedidos = useState(2);
@@ -8,10 +8,10 @@ function Header(){
     return(
         <>
             <header>
-                <nav className="navbar container-fluid shadow navbar-light py-2">
+                <nav className="navbar container-fluid navbar-light px-4 py-2">
                     <section className="menu__section">
                         <i className="bi bi-list" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"></i>
-                        <Link to='/'><span> <img src={logo} className="rounded" alt="logo Esfiháiéié"/></span></Link>
+                        <Link to='/'><span> <img src={logo} className="menu__logo rounded" alt="logo Esfiháiéié"/></span></Link>
                     </section>
 
                     <section className="menu__section">
@@ -23,7 +23,7 @@ function Header(){
                         </Link>
                     </section>
 
-                    <section className="offcanvas offcanvas-start menu__canvas" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <section className="offcanvas offcanvas-start menu__canvas px-2" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                         <section className="offcanvas-header">
                             <i className="bi bi-x-lg" data-bs-dismiss="offcanvas" aria-label="Close"></i>
                         </section>

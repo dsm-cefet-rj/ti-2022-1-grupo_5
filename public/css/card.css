@@ -1,12 +1,20 @@
 .card {
     background-color: var(--azul-card);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 20px;
     display: inline-block;
     padding: 0;
+    transition: .3s;
     width: 280px;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .card__img {
     background-color: var(--cinza-claro);
+    border-radius: 20px 20px 70px 70px;
 }
 
 /* Pedido */
