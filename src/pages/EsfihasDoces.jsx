@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import chocolateConfete from '../img/esfiha-chocolate-confete.png';
+import chocolateConfete from '../images/esfiha-chocolate-confete.png';
 
 export default function EsfihasDoces() {
     // eslint-disable-next-line no-restricted-globals

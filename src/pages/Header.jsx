@@ -3,7 +3,6 @@ import { Link, Outlet } from "react-router-dom";
 import logo from '../img/logo.jpg';
 
 function Header(){
-    const qtdPedidos = useState(2);
 
     return(
         <>
@@ -19,7 +18,7 @@ function Header(){
                         <i className="bi bi-person"></i>
                         <Link to='/pedido' className="position-relative">
                             <i className="bi bi-cart"></i>
-                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{qtdPedidos}</span>
+                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
                         </Link>
                     </section>
 

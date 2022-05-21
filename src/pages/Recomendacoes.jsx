@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import frangoCatupiry from '../img/esfiha-frango-catupiry.png';
-import chocolateConfete from '../img/esfiha-chocolate-confete.png';
+import frangoCatupiry from '../images/esfiha-frango-catupiry.png';
+import chocolateConfete from '../images/esfiha-chocolate-confete.png';
 import { Link } from "react-router-dom";
 
 function Recomendacoes() {

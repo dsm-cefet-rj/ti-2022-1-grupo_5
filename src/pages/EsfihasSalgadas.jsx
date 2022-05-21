@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import frangoCatupiry from '../img/esfiha-frango-catupiry.png';
+import frangoCatupiry from '../images/esfiha-frango-catupiry.png';
 
 export default function EsfihasSalgadas() {
     // eslint-disable-next-line no-restricted-globals

@@ -1,8 +1,8 @@
-import React from "react";
-import frangoCatupiry from '../img/esfiha-frango-catupiry.png';
-import chocolateConfete from '../img/esfiha-chocolate-confete.png';
+import React, { useEffect, useState } from "react";
+import frangoCatupiry from '../images/esfiha-frango-catupiry.png';
+import chocolateConfete from '../images/esfiha-chocolate-confete.png';
 
-export default function Pedido() {
+export default function Pedido(props) {
     // eslint-disable-next-line no-restricted-globals
     scrollTo({
         top: 0,
@@ -25,9 +25,9 @@ export default function Pedido() {
                                     <p>R$5,00</p>
                                     <section className="d-flex justify-content-between pedido__qtd">
                                         <article className="d-flex">
-                                            <input type="button" className="botao" value="-"/>
-                                            <input type="number" name="" id="" value="3" min="0"/>
-                                            <input type="button" className="botao" value="+"/>
+                                            <input type="button" className="botao" value="-" onChange={()=>{}}/>
+                                            <input type="number" name="" id="" value="3" min="0" onChange={()=>{}}/>
+                                            <input type="button" className="botao" value="+" onChange={()=>{}}/>
                                         </article>
                                         <button className="botao"><i className="bi bi-trash3 pedido__qtd__lixo"></i></button>
                                     </section>
@@ -41,9 +41,9 @@ export default function Pedido() {
                                     <p>R$6,00</p>
                                     <section className="d-flex justify-content-between pedido__qtd">
                                         <article className="d-flex">
-                                            <input type="button" className="botao" value="-"/>
-                                            <input type="number" name="" id="" value="1" min="0"/>
-                                            <input type="button" className="botao" value="+"/>
+                                            <input type="button" className="botao" value="-" onChange={()=>{}}/>
+                                            <input type="number" name="" id="" value="1" min="0" onChange={()=>{}}/>
+                                            <input type="button" className="botao" value="+" onChange={()=>{}}/>
                                         </article>
                                         <button className="botao"><i className="bi bi-trash3 pedido__qtd__lixo"></i></button>
                                     </section>
@@ -55,7 +55,7 @@ export default function Pedido() {
 
                     <section className="pedido__frete d-flex mx-5">
                         <div className="form-floating mb-3">
-                            <input type="text" inputMode="number" className="form-control form-control-sm cep" id="cep" placeholder="_____-___"/>
+                            <input type="text" inputMode="number" className="form-control form-control-sm cep" id="cep" placeholder="_____-___" onChange={()=>{}}/>
                             <label htmlFor="cep">CEP</label>
                         </div>
                     </section>
