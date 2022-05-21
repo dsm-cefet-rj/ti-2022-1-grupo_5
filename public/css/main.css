@@ -104,8 +104,9 @@ header a, header a:hover {
 table {
     background-color: var(--cinza-claro);
     border-collapse: separate;
-    border-radius: 2px;
-    border-spacing: 10px;
+    border-radius: 8px;
+    border-spacing: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     text-align: center;
 }
 
@@ -132,12 +133,12 @@ input[type=number] {
 .botao {
     background-color: var(--verde);
     border: 0;
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     color: var(--branco);
     font-family: var(--fonte-funcionalidades);
     font-size: 1rem;
-    padding: 0.2rem 0.7rem;
+    padding: 0.3rem 0.7rem;
     text-decoration: none;
     transition: .3s;
 }

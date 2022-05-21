@@ -10,6 +10,7 @@
 
 .menu__canvas {
     background-color: var(--azul-nav);
+    box-shadow: 2px 0 30px #000;
 }
 
 .menu__lista {
