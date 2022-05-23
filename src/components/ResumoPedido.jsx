@@ -75,7 +75,15 @@ export default function ResumoPedido() {
                     <td><strong>Total</strong></td>
                     <td>-</td>
                     <td>-</td>
-                    <td>R$70,00</td>
+                    <td>R$
+                    {
+                        pedido
+                        .map(item => item.qtd * item.valor )
+                        .reduce((valorAnterior, valorAtual) => 
+                            valorAnterior + valorAtual 
+                        ,0)
+                    } 
+                    </td>
                 </tr>
             </tfoot>
 

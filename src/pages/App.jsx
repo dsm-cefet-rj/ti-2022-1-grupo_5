@@ -28,7 +28,13 @@ export default function App() {
             img: 'img/esfiha-chocolate-confete.png',
             valor: 6.0,
             qtd: 3
-        }
+        },
+        {
+            nome: 'Carne',
+            img: 'img/esfiha-carne.png',
+            valor: 4.0,
+            qtd: 4
+        },
     ]);
 
     function menuCollapse() {
