@@ -15,13 +15,19 @@ export default function App() {
             nome: 'Frango com catupiry',
             img: 'img/esfiha-frango-catupiry.png',
             valor: 5.0,
-            qtd: 1
+            qtd: 7
+        },
+        {
+            nome: 'Chocolate branco',
+            img: 'img/esfiha-chocolate-branco.png',
+            valor: 6.0,
+            qtd: 2
         },
         {
             nome: 'Chocolate com confete',
             img: 'img/esfiha-chocolate-confete.png',
             valor: 6.0,
-            qtd: 5
+            qtd: 3
         }
     ]);
 

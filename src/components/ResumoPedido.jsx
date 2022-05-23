@@ -60,7 +60,7 @@ export default function ResumoPedido() {
                     <td>Frete</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>R$6,00</td>
+                    <td>R$5,00</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -75,7 +75,7 @@ export default function ResumoPedido() {
                     <td><strong>Total</strong></td>
                     <td>-</td>
                     <td>-</td>
-                    <td>R$41,00</td>
+                    <td>R$70,00</td>
                 </tr>
             </tfoot>
 
