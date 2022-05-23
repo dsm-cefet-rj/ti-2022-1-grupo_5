@@ -1,31 +1,42 @@
-import { createContext, React, useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Link, UNSAFE_RouteContext } from 'react-router-dom';
+import { createContext, React, useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Recomendacoes from './Recomendacoes';
 import EsfihasSalgadas from './EsfihasSalgadas';
 import EsfihasDoces from './EsfihasDoces';
 import Pedido from './Pedido';
 import NotFound from './NotFound';
-import logo from '../images/logo.jpg';
+
+export const PedidoContext = createContext();
 
 export default function App() {
-    const UserContext = createContext();
 
-    const [pedido, setPedido] = useState([
+    const [pedido] = useState([
         {
             nome: 'Frango com catupiry',
+            img: 'img/esfiha-frango-catupiry.png',
             valor: 5.0,
             qtd: 1
+        },
+        {
+            nome: 'Chocolate com confete',
+            img: 'img/esfiha-chocolate-confete.png',
+            valor: 6.0,
+            qtd: 5
         }
     ]);
 
+    function menuCollapse() {
+        document.querySelector('.bi-x-lg').click();
+    }
+
     return(
-    <UserContext.Provider value={pedido}>
+    <PedidoContext.Provider value={pedido}>
         <BrowserRouter>
             <header>
                 <nav className="navbar container-fluid navbar-light px-4 py-2">
                     <section className="menu__section">
                         <i className="bi bi-list" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"></i>
-                        <Link to='/'><span> <img src={logo} className="menu__logo rounded" alt="logo Esfiháiéié"/></span></Link>
+                        <Link to='/'><span> <img src={'img/logo.jpg'} className="menu__logo rounded" alt="logo Esfiháiéié"/></span></Link>
                     </section>
 
                     <section className="menu__section">
@@ -44,10 +55,10 @@ export default function App() {
 
                         <section className="offcanvas-body">
                             <ul className="menu__lista">
-                                <li className="menu__item"><Link to="/" onClick={e => {document.querySelector('.bi-x-lg').click()}}>Login</Link></li>
-                                <li className="menu__item"><Link to='/esfihas-salgadas' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Esfihas Salgadas</Link></li>
-                                <li className="menu__item"><Link to='/esfihas-doces' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Esfihas Doces</Link></li>
-                                <li className="menu__item"><Link to='/pedido' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Pedido</Link></li>
+                                <li className="menu__item"><Link to="/" onClick={menuCollapse}>Login</Link></li>
+                                <li className="menu__item"><Link to='/esfihas-salgadas' onClick={menuCollapse}>Esfihas Salgadas</Link></li>
+                                <li className="menu__item"><Link to='/esfihas-doces' onClick={menuCollapse}>Esfihas Doces</Link></li>
+                                <li className="menu__item"><Link to='/pedido' onClick={menuCollapse}>Pedido</Link></li>
                             </ul>
                         </section>
                     </section>
@@ -59,10 +70,10 @@ export default function App() {
                 <Route path='/' element={<Recomendacoes/>}/>
                 <Route path='/esfihas-salgadas' element={<EsfihasSalgadas/>}/>
                 <Route path='/esfihas-doces' element={<EsfihasDoces/>}/>
-                <Route path='/pedido' element={<Pedido pedido={pedido}/>}/>
+                <Route path='/pedido' element={<Pedido/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
-    </UserContext.Provider>
+    </PedidoContext.Provider>
     );
 }

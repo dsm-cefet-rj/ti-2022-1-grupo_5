@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import logo from '../img/logo.jpg';
 
 function Header(){
 
@@ -10,7 +9,7 @@ function Header(){
                 <nav className="navbar container-fluid navbar-light px-4 py-2">
                     <section className="menu__section">
                         <i className="bi bi-list" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"></i>
-                        <Link to='/'><span> <img src={logo} className="menu__logo rounded" alt="logo Esfiháiéié"/></span></Link>
+                        <Link to='/'><span> <img src={''} className="menu__logo rounded" alt="logo Esfiháiéié"/></span></Link>
                     </section>
 
                     <section className="menu__section">

@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from "react";
-import frangoCatupiry from '../images/esfiha-frango-catupiry.png';
-import chocolateConfete from '../images/esfiha-chocolate-confete.png';
+/* eslint-disable no-restricted-globals */
+import React, { useContext } from "react";
+import CardPedido from "../components/CardPedido";
+import ResumoPedido from "../components/ResumoPedido";
+import { PedidoContext } from "./App";
 
-export default function Pedido(props) {
-    // eslint-disable-next-line no-restricted-globals
-    scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+export default function Pedido() {
+    const pedido = useContext(PedidoContext);
 
     return (
         <main className="container pedido py-4">
@@ -17,39 +15,8 @@ export default function Pedido(props) {
 
                 <section className="pedido__form-section">
                     <section className="menu-esfihas my-2">
-                        <section className="d-flex justify-content-around flex-wrap">    
-                            <section className="card m-4">
-                                <img src={frangoCatupiry} className="card-img-top card__img" alt="..."/>
-                                <section className="card-body d-flex flex-column">
-                                    <h5 className="card-title">Frango com catupiry</h5>
-                                    <p>R$5,00</p>
-                                    <section className="d-flex justify-content-between pedido__qtd">
-                                        <article className="d-flex">
-                                            <input type="button" className="botao" value="-" onChange={()=>{}}/>
-                                            <input type="number" name="" id="" value="3" min="0" onChange={()=>{}}/>
-                                            <input type="button" className="botao" value="+" onChange={()=>{}}/>
-                                        </article>
-                                        <button className="botao"><i className="bi bi-trash3 pedido__qtd__lixo"></i></button>
-                                    </section>
-                                </section>
-                            </section>
-        
-                            <section className="card m-4">
-                                <img src={chocolateConfete} className="card-img-top card__img" alt="..."/>
-                                <section className="card-body d-flex flex-column">
-                                    <h5 className="card-title">Chocolate com confete</h5>
-                                    <p>R$6,00</p>
-                                    <section className="d-flex justify-content-between pedido__qtd">
-                                        <article className="d-flex">
-                                            <input type="button" className="botao" value="-" onChange={()=>{}}/>
-                                            <input type="number" name="" id="" value="1" min="0" onChange={()=>{}}/>
-                                            <input type="button" className="botao" value="+" onChange={()=>{}}/>
-                                        </article>
-                                        <button className="botao"><i className="bi bi-trash3 pedido__qtd__lixo"></i></button>
-                                    </section>
-                                </section>
-                            </section>
-                            
+                        <section className="d-flex justify-content-around flex-wrap"> 
+                            {pedido.map((item, index) => <CardPedido index={index}/>)}                                     
                         </section>
                     </section>
 
@@ -66,65 +33,7 @@ export default function Pedido(props) {
                 <section className="pedido__form-section">
                     <h3>Resumo</h3>
         
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Un.</th>
-                                <th>Qtd</th>
-                                <th>Total</th>
-                            </tr>
-                        </thead>
-        
-                        <tbody>
-                            <tr>
-                                <td>Frango com catupiry</td>
-                                <td>R$5,00</td>
-                                <td>3</td>
-                                <td>R$15,00</td>
-                            </tr>
-                            <tr>
-                                <td>Chocolate com confete</td>
-                                <td>R$6,00</td>
-                                <td>1</td>
-                                <td>R$6,00</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Subtotal</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>R$21,00</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Frete</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>R$6,00</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-        
-                        <tfoot>
-                            <tr>
-                                <td><strong>Total</strong></td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>R$26,00</td>
-                            </tr>
-                        </tfoot>
-        
-                    </table>
+                    <ResumoPedido/>
 
                 </section>
                 

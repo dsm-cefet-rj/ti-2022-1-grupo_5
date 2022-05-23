@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import frangoCatupiry from '../images/esfiha-frango-catupiry.png';
-import chocolateConfete from '../images/esfiha-chocolate-confete.png';
 import { Link } from "react-router-dom";
 
 function Recomendacoes() {
@@ -14,7 +12,7 @@ function Recomendacoes() {
                     <h2 className="menu-esfihas__titulo">Esfihas Salgadas</h2>
                     <section className="d-flex justify-content-around flex-wrap">    
                         <section className="card m-4">
-                            <img src={frangoCatupiry} className="card-img-top card__img" alt="..." ></img>
+                            <img src={''} className="card-img-top card__img" alt="..." ></img>
                             <section className="card-body">
                                 <h5 className="card-title">Frango com catupiry</h5>
                                 <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui in ultricies dolor velit nunc.</p>
@@ -22,7 +20,7 @@ function Recomendacoes() {
                         </section>
 
                         <section className="card m-4">
-                            <img src={frangoCatupiry} className="card-img-top card__img" alt="..." ></img>
+                            <img src={''} className="card-img-top card__img" alt="..." ></img>
                             <section className="card-body">
                                 <h5 className="card-title">Frango com catupiry</h5>
                                 <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui in ultricies dolor velit nunc.</p>
@@ -39,7 +37,7 @@ function Recomendacoes() {
                     <h2 className="menu-esfihas__titulo">Esfihas Doces</h2>
                     <section className="d-flex justify-content-around flex-wrap">    
                         <section className="card m-4">
-                            <img src={chocolateConfete} className="card-img-top card__img" alt="..." ></img>
+                            <img src={''} className="card-img-top card__img" alt="..." ></img>
                             <section className="card-body">
                                 <h5 className="card-title">Chocolate com confete</h5>
                                 <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui in ultricies dolor velit nunc.</p>
@@ -47,7 +45,7 @@ function Recomendacoes() {
                         </section>
 
                         <section className="card m-4">
-                            <img src={chocolateConfete} className="card-img-top card__img" alt="..."></img>
+                            <img src={''} className="card-img-top card__img" alt="..."></img>
                             <section className="card-body">
                                 <h5 className="card-title">Chocolate com confete</h5>
                                 <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dui in ultricies dolor velit nunc.</p>

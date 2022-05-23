@@ -1,12 +1,11 @@
 import React from "react";
-import logo from '../img/logo.jpg';
 
 function Footer(){
     return(
         <footer>
             <section className="row rodape">
                 <section className="col-6 d-flex py-4 flex-column align-items-center justify-content-around rounded">
-                    <img src={logo} className="rodape__img" alt="Logo do Esfiháiéié"/>
+                    <img src={''} className="rodape__img" alt="Logo do Esfiháiéié"/>
                 </section>
 
                 <section className="col-6 d-flex py-4 flex-column align-items-center justify-content-around rodape__contato">
