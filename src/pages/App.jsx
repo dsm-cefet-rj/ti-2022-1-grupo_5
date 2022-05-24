@@ -10,12 +10,12 @@ export const PedidoContext = createContext();
 
 export default function App() {
 
-    const [pedido] = useState([
+    const [pedido, setPedido] = useState([
         {
             nome: 'Frango com catupiry',
             img: 'img/esfiha-frango-catupiry.png',
             valor: 5.0,
-            qtd: 7
+            qtd: 1
         },
         {
             nome: 'Chocolate branco',
@@ -42,7 +42,7 @@ export default function App() {
     }
 
     return(
-    <PedidoContext.Provider value={pedido}>
+    <PedidoContext.Provider value={{pedido, setPedido}}>
         <BrowserRouter>
             <header>
                 <nav className="navbar container-fluid navbar-light px-4 py-2">

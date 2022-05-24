@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { PedidoContext } from "../pages/App";
 
 export default function ResumoPedido() {
-    const pedido = useContext(PedidoContext);
+    const {pedido} = useContext(PedidoContext);
+    const frete = 5;
 
     return(
         <table>
@@ -24,18 +25,6 @@ export default function ResumoPedido() {
                         <td>R${item.valor * item.qtd}</td>
                     </tr>
                 )}
-                {/* <tr>
-                    <td>Frango com catupiry</td>
-                    <td>R$5,00</td>
-                    <td>3</td>
-                    <td>R$15,00</td>
-                </tr>
-                <tr>
-                    <td>Chocolate com confete</td>
-                    <td>R$6,00</td>
-                    <td>1</td>
-                    <td>R$6,00</td>
-                </tr> */}
                 <tr>
                     <td><strong>Subtotal</strong></td>
                     <td>-</td>
@@ -60,7 +49,7 @@ export default function ResumoPedido() {
                     <td>Frete</td>
                     <td>-</td>
                     <td>-</td>
-                    <td>R$5,00</td>
+                    <td>R${frete}</td>
                 </tr>
                 <tr>
                     <td></td>
@@ -81,7 +70,7 @@ export default function ResumoPedido() {
                         .map(item => item.qtd * item.valor )
                         .reduce((valorAnterior, valorAtual) => 
                             valorAnterior + valorAtual 
-                        ,0)
+                        ,frete)
                     } 
                     </td>
                 </tr>

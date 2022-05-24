@@ -5,7 +5,7 @@ import ResumoPedido from "../components/ResumoPedido";
 import { PedidoContext } from "./App";
 
 export default function Pedido() {
-    const pedido = useContext(PedidoContext);
+    const {pedido} = useContext(PedidoContext);
 
     return (
         <main className="container pedido py-4">
