@@ -11,7 +11,7 @@ function Recomendacoes() {
     return (
         <main className="container py-5 px-4">
             <h1>Delivery de Esfihas</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vitae, sit adipiscing sed aliquet pharetra commodo curabitur eget. Fames faucibus tincidunt pellentesque eu. Semper non ipsum amet id purus. Feugiat viverra nibh nisl libero mattis. Vitae sed ultrices volutpat tempus. Pretium gravida donec in pharetra vel sit et volutpat. Volutpat iaculis sit elit at viverra quis leo.</p>
+            <p>Somos uma empresa que possui uma variedade de esfihas abertas salgadas e doces a disposição dos nossos clientes para serem compradas de suas casas através do nosso site. Acesse "ver mais" logo abaixo das esfihas para ter acesso aos outros sabores.</p>
 
             <section className="menu-esfihas my-5">
                     <h2 className="menu-esfihas__titulo">Esfihas Salgadas</h2>
