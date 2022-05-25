@@ -1,45 +1,75 @@
 /* eslint-disable no-restricted-globals */
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useRef, useState } from "react";
 import CardPedido from "../components/CardPedido";
 import ResumoPedido from "../components/ResumoPedido";
 import { PedidoContext } from "./App";
 
 export default function Pedido() {
-    const {pedido} = useContext(PedidoContext);
+    const {pedido, setPedido} = useContext(PedidoContext);
+    const [codIbge, setCodIbge] = useState(null);
+    const cepRegex = /^[0-9]{8}$/g;
+    const cep = useRef(null);
 
-    return (
-        <main className="container pedido py-4">
-            <h2>Pedido</h2>
+    async function preencherCep() {
+        if (cepRegex.test(cep.current.value)) {
+            const endereco = (await axios.get(`https://viacep.com.br/ws/${cep.current.value}/json`)).data;
+            console.log(endereco.bairro);
+            setCodIbge(endereco.ibge);
+        }
+    }
 
-            <form className="pedido__form">
+    function realizarPedido() {
+        if (cepRegex.test(cep.current.value) && codIbge.slice(0,2) === '33') {
+            console.log(pedido);
+            setPedido([]);
+            alert('Pedido realizado!');
+        } else {
+            alert('É preciso inserir um CEP que seja do RJ');
+        }
+    }
 
-                <section className="pedido__form-section">
-                    <section className="menu-esfihas my-2">
-                        <section className="d-flex justify-content-around flex-wrap"> 
-                            {pedido.map((item, index) => <CardPedido index={index}/>)}                                     
+    if (pedido.length !== 0) {
+        return (
+            <main className="container pedido py-5">
+                <h2>Pedido</h2>
+
+                <form className="pedido__form">
+
+                    <section className="pedido__form-section">
+                        <section className="menu-esfihas my-2">
+                            <section className="d-flex justify-content-around flex-wrap"> 
+                                {pedido.map((item, index) => <CardPedido index={index}/>)}                                     
+                            </section>
                         </section>
+
+                        <section className="pedido__frete d-flex mx-5">
+                            <div className="form-floating mb-3">
+                                <input type="text" inputMode="number" maxLength={8} ref={cep} className="form-control form-control-sm cep" id="cep" placeholder="_____-___" onInput={preencherCep}/>
+                                <label htmlFor="cep">CEP</label>
+                            </div>
+                        </section>
+            
+
                     </section>
 
-                    <section className="pedido__frete d-flex mx-5">
-                        <div className="form-floating mb-3">
-                            <input type="text" inputMode="number" className="form-control form-control-sm cep" id="cep" placeholder="_____-___" onChange={()=>{}}/>
-                            <label htmlFor="cep">CEP</label>
-                        </div>
+                    <section className="pedido__form-section">
+                        <h3>Resumo</h3>
+            
+                        <ResumoPedido/>
+
                     </section>
-        
+                    
+                    <span className="botao" onClick={realizarPedido}><i className="bi bi-bag-check-fill botao__icon"></i>Finalizar pedido</span>
+                </form>
 
-                </section>
-
-                <section className="pedido__form-section">
-                    <h3>Resumo</h3>
-        
-                    <ResumoPedido/>
-
-                </section>
-                
-                <button type="submit" className="botao"><i className="bi bi-bag-check-fill botao__icon"></i>Finalizar pedido</button>
-            </form>
-
-        </main>
-    );
+            </main>
+        );
+    } else {
+        return (
+            <main className="container d-flex align-items-center justify-content-center p-5">
+                <h1>Seu carrinho de compras está vazio</h1>
+            </main>
+        );
+    }
 }

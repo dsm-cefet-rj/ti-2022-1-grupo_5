@@ -11,38 +11,128 @@ export const PedidoContext = createContext();
 export default function App() {
 
     const [pedido, setPedido] = useState([
+        // {
+        //     nome: 'Frango com catupiry',
+        //     img: 'img/esfiha-frango-catupiry.png',
+        //     valor: 5.0,
+        //     qtd: 1
+        // },
+        // {
+        //     nome: 'Carne',
+        //     img: 'img/esfiha-carne.png',
+        //     valor: 4.0,
+        //     qtd: 4
+        // },
+        // {
+        //     nome: 'Chocolate branco',
+        //     img: 'img/esfiha-chocolate-branco.png',
+        //     valor: 6.0,
+        //     qtd: 2
+        // },
+        // {
+        //     nome: 'Chocolate com confete',
+        //     img: 'img/esfiha-chocolate-confete.png',
+        //     valor: 6.0,
+        //     qtd: 3
+        // }
+    ]);
+
+    const esfihas = [
         {
-            nome: 'Frango com catupiry',
-            img: 'img/esfiha-frango-catupiry.png',
-            valor: 5.0,
-            qtd: 1
+            id: 1,
+            tipo: 'Salgada',
+            nome: '3 Queijos',
+            img: 'img/esfiha-3-queijos.png',
+            valor: 5.0
         },
         {
-            nome: 'Chocolate branco',
-            img: 'img/esfiha-chocolate-branco.png',
-            valor: 6.0,
-            qtd: 2
+            id: 2,
+            tipo: 'Salgada',
+            nome: 'Atum',
+            img: 'img/esfiha-atum.png',
+            valor: 4.0
         },
         {
-            nome: 'Chocolate com confete',
-            img: 'img/esfiha-chocolate-confete.png',
-            valor: 6.0,
-            qtd: 3
+            id: 3,
+            tipo: 'Salgada',
+            nome: 'Bacon',
+            img: 'img/esfiha-bacon.png',
+            valor: 5.0
         },
         {
+            id: 4,
+            tipo: 'Salgada',
             nome: 'Carne',
             img: 'img/esfiha-carne.png',
-            valor: 4.0,
-            qtd: 4
+            valor: 4.0
         },
-    ]);
+        {
+            id: 5,
+            tipo: 'Salgada',
+            nome: 'Frango com catupiry',
+            img: 'img/esfiha-frango-catupiry.png',
+            valor: 5.0
+        },
+        {
+            id: 6,
+            tipo: 'Salgada',
+            nome: 'Manjericão',
+            img: 'img/esfiha-manjericão.png',
+            valor: 4.0
+        },
+        {
+            id: 7,
+            tipo: 'Doce',
+            nome: 'Banana',
+            img: 'img/esfiha-banana.png',
+            valor: 6.0
+        },
+        {
+            id: 8,
+            tipo: 'Doce',
+            nome: 'Brigadeiro',
+            img: 'img/esfiha-brigadeiro.png',
+            valor: 6.0
+        },
+        {
+            id: 9,
+            tipo: 'Doce',
+            nome: 'Chocolate branco',
+            img: 'img/esfiha-chocolate-branco.png',
+            valor: 6.0
+        },
+        {
+            id: 10,
+            tipo: 'Doce',
+            nome: 'Chocolate com confete',
+            img: 'img/esfiha-chocolate-confete.png',
+            valor: 6.0
+        },
+        {
+            id: 11,
+            tipo: 'Doce',
+            nome: 'Doce de Leite',
+            img: 'img/esfiha-doce-leite.png',
+            valor: 6.0
+        },
+        {
+            id: 12,
+            tipo: 'Doce',
+            nome: 'Morango',
+            img: 'img/esfiha-morango.png',
+            valor: 6.0
+        },
+    ];
+
+    const esfihasSalgadas = esfihas.filter(esfiha => esfiha.tipo === 'Salgada');
+    const esfihasDoce = esfihas.filter(esfiha => esfiha.tipo === 'Doce');
 
     function menuCollapse() {
         document.querySelector('.bi-x-lg').click();
     }
 
     return(
-    <PedidoContext.Provider value={{pedido, setPedido}}>
+    <PedidoContext.Provider value={{pedido, setPedido, esfihasSalgadas, esfihasDoce}}>
         <BrowserRouter>
             <header>
                 <nav className="navbar container-fluid navbar-light px-4 py-2">

@@ -24,7 +24,7 @@
     width: 30px;
 }
 
-.pedido__qtd button {
+.pedido__qtd span {
     background-color: var(--azul-nav);
 }
 
