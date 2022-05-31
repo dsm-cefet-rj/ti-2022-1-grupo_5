@@ -32,6 +32,7 @@ function Header(){
                                 <li className="menu__item"><Link to='/esfihas-salgadas' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Esfihas Salgadas</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-doces' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Esfihas Doces</Link></li>
                                 <li className="menu__item"><Link to='/pedido' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Pedido</Link></li>
+                                <li className="menu__item"><Link to='/ingredientes' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Ingredientes</Link></li>
                             </ul>
                         </section>
                     </section>

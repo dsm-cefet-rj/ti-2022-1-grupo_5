@@ -5,8 +5,12 @@ import EsfihasSalgadas from './EsfihasSalgadas';
 import EsfihasDoces from './EsfihasDoces';
 import Pedido from './Pedido';
 import NotFound from './NotFound';
+import Ingredientes from './Ingredientes';
+
 
 export const PedidoContext = createContext();
+
+export const IngredienteContext = createContext();
 
 export default function App() {
 
@@ -124,8 +128,58 @@ export default function App() {
         },
     ];
 
+
+    const ingredientes = [
+        {
+            nome: 'Queijo Mussarela',
+            img: 'img/ingrediente-queijo-mussarela.png',
+            valor: 3.0
+        },
+        {
+            nome: 'Cebola',
+            img: 'img/ingrediente-cebola.png',
+            valor: 1.0
+
+        },
+        {
+            nome: 'Frango',
+            img: 'img/ingrediente-frango.png',
+            valor: 2.0
+        },
+        {
+            nome: 'Oregano',
+            img: 'img/ingrediente-oregano.png',
+            valor: 1.0
+        },
+        {
+            nome: 'Tomate',
+            img: 'img/ingrediente-carne-moida.png',
+            valor: 1.0
+
+        },
+        {
+            nome: 'Chocolate',
+            img: 'img/ingrediente-chocolate.png',
+            valor: 2.0
+
+        },
+        {
+            nome: 'Granulado',
+            img: 'img/ingrediente-granulado.png',
+            valor: 1.0
+
+        },
+        {
+            nome: 'Morango',
+            img: 'img/ingrediente-morango.png',
+            valor: 2.0
+        },
+    ];
+
     const esfihasSalgadas = esfihas.filter(esfiha => esfiha.tipo === 'Salgada');
     const esfihasDoce = esfihas.filter(esfiha => esfiha.tipo === 'Doce');
+
+    const Ingredientes = ingredientes.filter(ingrediente => ingrediente.nome);
 
     function menuCollapse() {
         document.querySelector('.bi-x-lg').click();
@@ -161,6 +215,7 @@ export default function App() {
                                 <li className="menu__item"><Link to='/esfihas-salgadas' onClick={menuCollapse}>Esfihas Salgadas</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-doces' onClick={menuCollapse}>Esfihas Doces</Link></li>
                                 <li className="menu__item"><Link to='/pedido' onClick={menuCollapse}>Pedido</Link></li>
+                                <li className="menu__item"><Link to='/ingredientes' onClick={menuCollapse}>Ingredientes</Link></li>
                             </ul>
                         </section>
                     </section>
@@ -173,6 +228,7 @@ export default function App() {
                 <Route path='/esfihas-salgadas' element={<EsfihasSalgadas/>}/>
                 <Route path='/esfihas-doces' element={<EsfihasDoces/>}/>
                 <Route path='/pedido' element={<Pedido/>}/>
+                <Route path='/ingredientes' element={<Ingredientes/>}/>
                 <Route path='*' element={<NotFound/>}/>
             </Routes>
         </BrowserRouter>
