@@ -174,6 +174,22 @@ export default function App() {
             img: 'img/ingrediente-morango.png',
             valor: 2.0
         },
+        {
+            nome: 'Doce de leite',
+            img: 'img/ingrediente-doce-de-leite.png',
+            valor: 1.0
+        },
+        {
+            nome: 'Catupiry',
+            img: 'img/ingrediente-catupiry.png',
+            valor: 1.0
+        },
+        {
+            nome: 'Confete',
+            img: 'img/ingrediente-confete.png',
+            valor: 1.0
+        },
+
     ];
 
     const esfihasSalgadas = esfihas.filter(esfiha => esfiha.tipo === 'Salgada');
