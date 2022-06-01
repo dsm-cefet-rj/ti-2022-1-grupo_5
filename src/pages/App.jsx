@@ -6,6 +6,7 @@ import EsfihasDoces from './EsfihasDoces';
 import Pedido from './Pedido';
 import NotFound from './NotFound';
 import Ingredientes from './Ingredientes';
+import Login from './Login';
 
 
 export const PedidoContext = createContext();
@@ -212,8 +213,10 @@ export default function App() {
                     </section>
 
                     <section className="menu__section">
+                        <Link to='/Login' className="position-relative">
                         <span>Login </span>
                         <i className="bi bi-person"></i>
+                        </Link>
                         <Link to='/pedido' className="position-relative">
                             <i className="bi bi-cart"></i>
                             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{(pedido.length === 0)? '' : pedido.length}</span>
@@ -227,7 +230,7 @@ export default function App() {
 
                         <section className="offcanvas-body">
                             <ul className="menu__lista">
-                                <li className="menu__item"><Link to="/" onClick={menuCollapse}>Login</Link></li>
+                                <li className="menu__item"><Link to='/Login' onClick={menuCollapse}>Login</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-salgadas' onClick={menuCollapse}>Esfihas Salgadas</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-doces' onClick={menuCollapse}>Esfihas Doces</Link></li>
                                 <li className="menu__item"><Link to='/pedido' onClick={menuCollapse}>Pedido</Link></li>
@@ -246,6 +249,7 @@ export default function App() {
                 <Route path='/pedido' element={<Pedido/>}/>
                 <Route path='/ingredientes' element={<Ingredientes/>}/>
                 <Route path='*' element={<NotFound/>}/>
+                <Route path='/Login' element={<Login/>}/>
             </Routes>
         </BrowserRouter>
     </PedidoContext.Provider>
