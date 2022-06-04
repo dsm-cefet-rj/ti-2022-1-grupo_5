@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-globals */
 import axios from "axios";
 import React, { useContext, useRef, useState } from "react";
-import CardPedido from "../components/CardPedido";
-import ResumoPedido from "../components/ResumoPedido";
+import CardPedido from "../CardPedido";
+import ResumoPedido from "../ResumoPedido";
 import { PedidoContext } from "./App";
 
 export default function Pedido() {

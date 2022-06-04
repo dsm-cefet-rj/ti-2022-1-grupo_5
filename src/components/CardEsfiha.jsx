@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { PedidoContext } from "../pages/App";
+import { PedidoContext } from "./pages/App";
+import { Link } from "react-router-dom";
 
 export function CardEsfiha({esfihas, index}) {
     const {pedido, setPedido} = useContext(PedidoContext);
@@ -22,7 +23,9 @@ export function CardEsfiha({esfihas, index}) {
             <section className="card-body d-flex flex-column">
                 <h5 className="card-title text-center">{esfihas[index].nome}</h5>
                 <p className="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, neque. </p>
-                <span className="botao card__btn align-self-center" onClick={adicionarItemPedido}><i className="bi bi-cart-plus botao__icon"></i>Comprar</span>
+                {/* se a esfiha for do tipo personalizada, mostra o botão de criar esfiha*/}
+                {esfihas[index].tipo === 'Personalizada' ? <Link to='/criar-esfihas' className="botao card__btn align-self-center"><i className="bi bi-pencil-square botao__icon"></i>Criar</Link> 
+                    : <span className="botao card__btn align-self-center" onClick={adicionarItemPedido}><i className="bi bi-cart-plus-fill botao__icon"></i>Comprar</span>}
             </section>
         </section>
     );

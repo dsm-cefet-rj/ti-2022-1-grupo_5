@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { PedidoContext } from "./App";
-import { CardEsfiha } from '../components/CardEsfiha'
+import { CardEsfiha } from '../CardEsfiha'
 
 export default function EsfihasSalgadas() {
     // eslint-disable-next-line no-restricted-globals

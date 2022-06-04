@@ -5,13 +5,13 @@ import EsfihasSalgadas from './EsfihasSalgadas';
 import EsfihasDoces from './EsfihasDoces';
 import Pedido from './Pedido';
 import NotFound from './NotFound';
-import Ingredientes from './Ingredientes';
 import Login from './Login';
+import CriarEsfiha from './Criar-esfiha';
 
 
 export const PedidoContext = createContext();
 
-export const IngredienteContext = createContext();
+//export const PersonalizadaContext = createContext();
 
 export default function App() {
 
@@ -129,81 +129,32 @@ export default function App() {
         },
     ];
 
-
-    const ingredientes = [
+    const personalizadas = [
         {
-            nome: 'Queijo Mussarela',
-            img: 'img/ingrediente-queijo-mussarela.png',
-            valor: 3.0
+            id : 1,
+            tipo : 'Personalizada',
+            nome : 'Salgada',
+            img: 'img/personalizadas-salgada.png'
         },
         {
-            nome: 'Cebola',
-            img: 'img/ingrediente-cebola.png',
-            valor: 1.0
-
+            id : 2,
+            tipo : 'Personalizada',
+            nome : 'Doce',
+            img: 'img/personalizadas-doce.png'
         },
-        {
-            nome: 'Frango',
-            img: 'img/ingrediente-frango.png',
-            valor: 2.0
-        },
-        {
-            nome: 'Oregano',
-            img: 'img/ingrediente-oregano.png',
-            valor: 1.0
-        },
-        {
-            nome: 'Tomate',
-            img: 'img/ingrediente-carne-moida.png',
-            valor: 1.0
-
-        },
-        {
-            nome: 'Chocolate',
-            img: 'img/ingrediente-chocolate.png',
-            valor: 2.0
-
-        },
-        {
-            nome: 'Granulado',
-            img: 'img/ingrediente-granulado.png',
-            valor: 1.0
-
-        },
-        {
-            nome: 'Morango',
-            img: 'img/ingrediente-morango.png',
-            valor: 2.0
-        },
-        {
-            nome: 'Doce de leite',
-            img: 'img/ingrediente-doce-de-leite.png',
-            valor: 1.0
-        },
-        {
-            nome: 'Catupiry',
-            img: 'img/ingrediente-catupiry.png',
-            valor: 1.0
-        },
-        {
-            nome: 'Confete',
-            img: 'img/ingrediente-confete.png',
-            valor: 1.0
-        },
-
+    
     ];
 
     const esfihasSalgadas = esfihas.filter(esfiha => esfiha.tipo === 'Salgada');
     const esfihasDoce = esfihas.filter(esfiha => esfiha.tipo === 'Doce');
-
-    const Ingredientes = ingredientes.filter(ingrediente => ingrediente.nome);
+    const personaliza = personalizadas;
 
     function menuCollapse() {
         document.querySelector('.bi-x-lg').click();
     }
 
     return(
-    <PedidoContext.Provider value={{pedido, setPedido, esfihasSalgadas, esfihasDoce}}>
+    <PedidoContext.Provider value={{pedido, setPedido, esfihasSalgadas, esfihasDoce, personaliza}}>
         <BrowserRouter>
             <header>
                 <nav className="navbar container-fluid navbar-light px-4 py-2">
@@ -234,7 +185,6 @@ export default function App() {
                                 <li className="menu__item"><Link to='/esfihas-salgadas' onClick={menuCollapse}>Esfihas Salgadas</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-doces' onClick={menuCollapse}>Esfihas Doces</Link></li>
                                 <li className="menu__item"><Link to='/pedido' onClick={menuCollapse}>Pedido</Link></li>
-                                <li className="menu__item"><Link to='/ingredientes' onClick={menuCollapse}>Ingredientes</Link></li>
                             </ul>
                         </section>
                     </section>
@@ -247,11 +197,12 @@ export default function App() {
                 <Route path='/esfihas-salgadas' element={<EsfihasSalgadas/>}/>
                 <Route path='/esfihas-doces' element={<EsfihasDoces/>}/>
                 <Route path='/pedido' element={<Pedido/>}/>
-                <Route path='/ingredientes' element={<Ingredientes/>}/>
+                <Route path='/criar-esfiha' element={<CriarEsfiha/>}/>
                 <Route path='*' element={<NotFound/>}/>
                 <Route path='/Login' element={<Login/>}/>
             </Routes>
         </BrowserRouter>
     </PedidoContext.Provider>
     );
+
 }

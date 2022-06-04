@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PedidoContext } from "../pages/App";
+import { PedidoContext } from "./pages/App";
 
 export default function ResumoPedido() {
     const {pedido} = useContext(PedidoContext);

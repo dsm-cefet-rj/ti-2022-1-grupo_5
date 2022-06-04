@@ -22,3 +22,15 @@
 .pedido__form-section .card {
     width: 180px;
 }
+
+.personalizada{
+    background-color: var(--azul-card);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 20px;
+    padding: 0 !important;
+    transition: .3s;
+    width: 85%;
+    height: 85%;
+    text-align: center;
+    margin: 0 auto;
+}
