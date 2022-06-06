@@ -1,5 +1,6 @@
 import { createContext, React, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Recomendacoes from './Recomendacoes';
 import EsfihasSalgadas from './EsfihasSalgadas';
 import EsfihasDoces from './EsfihasDoces';
@@ -7,6 +8,7 @@ import Pedido from './Pedido';
 import NotFound from './NotFound';
 import Login from './Login';
 import CriarEsfiha from './Criar-esfiha';
+import { getEsfihas, teste } from '../../features/esfihas';
 
 
 export const PedidoContext = createContext();
@@ -152,6 +154,8 @@ export default function App() {
     function menuCollapse() {
         document.querySelector('.bi-x-lg').click();
     }
+
+    useDispatch(teste(5));
 
     return(
     <PedidoContext.Provider value={{pedido, setPedido, esfihasSalgadas, esfihasDoce, personaliza}}>
