@@ -1,21 +1,10 @@
 @media all and (min-width: 480px) {
     .Login {
       padding: 60px 0;
-      color: white;
     }
   
     .Login form {
       margin: 0 auto;
       max-width: 320px;
-    }
-    .grid-container {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      padding: 1px;
-    }
-    .grid-item {
-      padding: 20px;
-      font-size: 30px;
-      text-align: center;
     }
   }

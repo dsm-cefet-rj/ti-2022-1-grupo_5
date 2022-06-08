@@ -2,10 +2,6 @@ import React, { useState } from  "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./lan.css";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
-
-
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -23,7 +19,7 @@ export default function Login() {
     <div className="Login">
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
-          <Form.Label>Email: </Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
             autoFocus
             type="email"
@@ -32,26 +28,17 @@ export default function Login() {
           />
         </Form.Group>
         <Form.Group size="lg" controlId="password">
-          <Form.Label>Senha: </Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <div class="grid-container">
-           <div class="grid-item">
-          <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
-          <Link to='/' className="Login">Login</Link>
-        </Button>     
-        </div>
-        <div class="grid-item">
-          <Button block="true" size="lg" type="submit">
-           <Link to='/Register' className="Login">Criar Conta</Link>
-        </Button></div>
-        </div>
-          
-    </Form>
+        <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
+          Login
+        </Button>
+      </Form>
     </div>
   );
 }
