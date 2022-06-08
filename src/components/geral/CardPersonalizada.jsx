@@ -1,5 +1,6 @@
+//Não iremos utilizar por enquanto
 import React, { useContext } from "react";
-import { PedidoContext } from "./pages/App";
+import { PedidoContext } from "../../App";
 import { Link } from "react-router-dom";
 
 export function CardPersonalizada({personalizadas, index}) {
