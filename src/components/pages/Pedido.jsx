@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import CardPedido from "../CardPedido";
+import CardPedido from "../geral/CardPedido";
 import ResumoPedido from "../ResumoPedido";
 
 export default function Pedido() {

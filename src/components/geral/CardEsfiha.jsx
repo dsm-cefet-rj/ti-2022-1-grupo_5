@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { adicionarItem } from "../features/pedido";
+import { adicionarItem } from "../../features/pedido";
 
 export function CardEsfiha({esfihas, index}) {
     const dispatch = useDispatch();

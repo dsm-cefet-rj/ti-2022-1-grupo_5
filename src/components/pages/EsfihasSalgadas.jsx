@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { CardEsfiha } from '../CardEsfiha'
+import { CardEsfiha } from '../geral/CardEsfiha'
 
 export default function EsfihasSalgadas() {
     

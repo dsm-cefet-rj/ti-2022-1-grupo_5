@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { aumentarQtd, dimunuirQtd, excluirItem } from "../features/pedido"
+import { aumentarQtd, dimunuirQtd, excluirItem } from "../../features/pedido"
 
 export default function CardPedido({index}) {
     

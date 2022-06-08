@@ -1,12 +1,14 @@
 import { React, StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/pages/App';
+import App from './App';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import criarEsfiha from './features/personalizada-salgada';
 import ingredientesEsfihaSlice from './features/ingredientes-recheioSlice';
 import esfihasReducer from './features/esfihas';
 import pedidoReducer from './features/pedido'
+import gerirIngredientesSlice from "./features/gerir-ingredientesSlice";
+
 
 
 const store = configureStore({
@@ -14,7 +16,9 @@ const store = configureStore({
       criarEsfiha: criarEsfiha,
       ingredientesRecheio: ingredientesEsfihaSlice,
       esfihas: esfihasReducer,
-      pedido: pedidoReducer
+      pedido: pedidoReducer,
+      gerirIngredientes: gerirIngredientesSlice,
+
   },
 });
 

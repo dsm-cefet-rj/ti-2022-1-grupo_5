@@ -1,14 +1,14 @@
 import { createContext, React, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Recomendacoes from './Recomendacoes';
-import EsfihasSalgadas from './EsfihasSalgadas';
-import EsfihasDoces from './EsfihasDoces';
-import Pedido from './Pedido';
-import NotFound from './NotFound';
-import Login from './Login';
-import CriarEsfiha from './Criar-esfiha';
-import { getEsfihas } from '../../features/esfihas';
+import Recomendacoes from './components/pages/Recomendacoes';
+import EsfihasSalgadas from './components/pages/EsfihasSalgadas';
+import EsfihasDoces from './components/pages/EsfihasDoces';
+import Pedido from './components/pages/Pedido';
+import NotFound from './components/pages/NotFound';
+import Login from './components/pages/Login';
+import CriarEsfiha from './components/pages/Criar-esfiha';
+import { getEsfihas } from './features/esfihas';
 
 
 export const PedidoContext = createContext();
