@@ -1,6 +1,6 @@
-import { createContext, React, useState } from 'react';
+import { createContext, React, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Recomendacoes from './Recomendacoes';
 import EsfihasSalgadas from './EsfihasSalgadas';
 import EsfihasDoces from './EsfihasDoces';
@@ -8,128 +8,12 @@ import Pedido from './Pedido';
 import NotFound from './NotFound';
 import Login from './Login';
 import CriarEsfiha from './Criar-esfiha';
-import { getEsfihas, teste } from '../../features/esfihas';
+import { getEsfihas } from '../../features/esfihas';
 
 
 export const PedidoContext = createContext();
 
-//export const PersonalizadaContext = createContext();
-
 export default function App() {
-
-    const [pedido, setPedido] = useState([
-        // {
-        //     nome: 'Frango com catupiry',
-        //     img: 'img/esfiha-frango-catupiry.png',
-        //     valor: 5.0,
-        //     qtd: 1
-        // },
-        // {
-        //     nome: 'Carne',
-        //     img: 'img/esfiha-carne.png',
-        //     valor: 4.0,
-        //     qtd: 4
-        // },
-        // {
-        //     nome: 'Chocolate branco',
-        //     img: 'img/esfiha-chocolate-branco.png',
-        //     valor: 6.0,
-        //     qtd: 2
-        // },
-        // {
-        //     nome: 'Chocolate com confete',
-        //     img: 'img/esfiha-chocolate-confete.png',
-        //     valor: 6.0,
-        //     qtd: 3
-        // }
-    ]);
-
-    const esfihas = [
-        {
-            id: 1,
-            tipo: 'Salgada',
-            nome: '3 Queijos',
-            img: 'img/esfiha-3-queijos.png',
-            valor: 5.0
-        },
-        {
-            id: 2,
-            tipo: 'Salgada',
-            nome: 'Atum',
-            img: 'img/esfiha-atum.png',
-            valor: 4.0
-        },
-        {
-            id: 3,
-            tipo: 'Salgada',
-            nome: 'Bacon',
-            img: 'img/esfiha-bacon.png',
-            valor: 5.0
-        },
-        {
-            id: 4,
-            tipo: 'Salgada',
-            nome: 'Carne',
-            img: 'img/esfiha-carne.png',
-            valor: 4.0
-        },
-        {
-            id: 5,
-            tipo: 'Salgada',
-            nome: 'Frango com catupiry',
-            img: 'img/esfiha-frango-catupiry.png',
-            valor: 5.0
-        },
-        {
-            id: 6,
-            tipo: 'Salgada',
-            nome: 'Manjericão',
-            img: 'img/esfiha-manjericão.png',
-            valor: 4.0
-        },
-        {
-            id: 7,
-            tipo: 'Doce',
-            nome: 'Banana',
-            img: 'img/esfiha-banana.png',
-            valor: 6.0
-        },
-        {
-            id: 8,
-            tipo: 'Doce',
-            nome: 'Brigadeiro',
-            img: 'img/esfiha-brigadeiro.png',
-            valor: 6.0
-        },
-        {
-            id: 9,
-            tipo: 'Doce',
-            nome: 'Chocolate branco',
-            img: 'img/esfiha-chocolate-branco.png',
-            valor: 6.0
-        },
-        {
-            id: 10,
-            tipo: 'Doce',
-            nome: 'Chocolate com confete',
-            img: 'img/esfiha-chocolate-confete.png',
-            valor: 6.0
-        },
-        {
-            id: 11,
-            tipo: 'Doce',
-            nome: 'Doce de Leite',
-            img: 'img/esfiha-doce-leite.png',
-            valor: 6.0
-        },
-        {
-            id: 12,
-            tipo: 'Doce',
-            nome: 'Morango',
-            img: 'img/esfiha-morango.png',
-            valor: 6.0
-        },
-    ];
 
     const personalizadas = [
         {
@@ -147,18 +31,19 @@ export default function App() {
     
     ];
 
-    const esfihasSalgadas = esfihas.filter(esfiha => esfiha.tipo === 'Salgada');
-    const esfihasDoce = esfihas.filter(esfiha => esfiha.tipo === 'Doce');
-    const personaliza = personalizadas;
-
     function menuCollapse() {
         document.querySelector('.bi-x-lg').click();
     }
 
-    useDispatch(teste(5));
+    const pedido = useSelector(state => state.pedido);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getEsfihas());
+    }, []);
 
     return(
-    <PedidoContext.Provider value={{pedido, setPedido, esfihasSalgadas, esfihasDoce, personaliza}}>
         <BrowserRouter>
             <header>
                 <nav className="navbar container-fluid navbar-light px-4 py-2">
@@ -174,7 +59,7 @@ export default function App() {
                         </Link>
                         <Link to='/pedido' className="position-relative">
                             <i className="bi bi-cart"></i>
-                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{(pedido.length === 0)? '' : pedido.length}</span>
+                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{(pedido.length === 0) ? '' : pedido.reduce((pre, cur) => pre + cur.qtd,0)}</span>
                         </Link>
                     </section>
 
@@ -198,15 +83,14 @@ export default function App() {
 
             <Routes>
                 <Route path='/' element={<Recomendacoes/>}/>
+                <Route path='/Login' element={<Login/>}/>
                 <Route path='/esfihas-salgadas' element={<EsfihasSalgadas/>}/>
                 <Route path='/esfihas-doces' element={<EsfihasDoces/>}/>
-                <Route path='/pedido' element={<Pedido/>}/>
                 <Route path='/criar-esfiha' element={<CriarEsfiha/>}/>
+                <Route path='/pedido' element={<Pedido/>}/>
                 <Route path='*' element={<NotFound/>}/>
-                <Route path='/Login' element={<Login/>}/>
             </Routes>
         </BrowserRouter>
-    </PedidoContext.Provider>
     );
 
 }

@@ -1,27 +1,11 @@
-import React, { useContext } from "react";
-import { PedidoContext } from "./pages/App";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { aumentarQtd, dimunuirQtd, excluirItem } from "../features/pedido"
 
 export default function CardPedido({index}) {
-    const {pedido, setPedido} = useContext(PedidoContext);
-
-    function aumentarQtd() {
-        const pedidoCopia = [...pedido];
-        pedidoCopia[index].qtd++;
-        setPedido(pedidoCopia);
-    }
-
-    function diminuirQtd() {
-        const pedidoCopia = [...pedido];
-        pedidoCopia[index].qtd--;
-        setPedido(pedidoCopia);
-        if(pedido[index].qtd === 0) excluirItem();
-    }
-
-    function excluirItem() {
-        const pedidoCopia = [...pedido];
-        pedidoCopia.splice(index,1);
-        setPedido(pedidoCopia);
-    }
+    
+    const pedido = useSelector(state => state.pedido);
+    const dispatch = useDispatch();
 
     return(
     <section className="card m-4">
@@ -31,11 +15,11 @@ export default function CardPedido({index}) {
             <p>R$ {pedido[index].valor}</p> 
             <section className="d-flex justify-content-between pedido__qtd">
                 <article className="d-flex">
-                    <input type="button" className="botao" value="-" onClick={diminuirQtd}/>
+                    <input type="button" className="botao" value="-" onClick={()=> dispatch(dimunuirQtd(index))}/>
                     <input type="number" name="" id="" value={pedido[index].qtd} min="0" onClick={()=>{}}/>
-                    <input type="button" className="botao" value="+" onClick={aumentarQtd}/>
+                    <input type="button" className="botao" value="+" onClick={() => dispatch(aumentarQtd(index))}/>
                 </article>
-                <span className="botao" onClick={excluirItem}><i className="bi bi-trash3 pedido__qtd__lixo"></i></span>
+                <span className="botao" onClick={() => dispatch(excluirItem(index))}><i className="bi bi-trash3 pedido__qtd__lixo"></i></span>
             </section>
         </section>
     </section>

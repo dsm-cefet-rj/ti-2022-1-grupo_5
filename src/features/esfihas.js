@@ -2,26 +2,25 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getEsfihas = createAsyncThunk('esfihas/getEsfihas', async() => 
-    (await axios.get('localhost:3004/esfihas')).data
+    (await axios.get('http://localhost:3004/esfihas')).data
 );
 
 export const esfihasSlice = createSlice({
     name: "esfihas",
-    initialState: 0,
+    initialState: { salgadas: [], doce: [] },
     reducers: {
-        teste: (state, action) => {
-            console.log('---------------------');
-            state.value = action.payload;
-        }
+
     },
-    extraReducers: {
-        [getEsfihas.fulfilled]: (state, action) => {
-            console.log('oi2');
-            state = action.payload;
-        }
+    extraReducers: (builder) => {
+        builder.addCase(getEsfihas.fulfilled, (state, action) => {
+            const esfihas = action.payload;
+            state.salgadas = esfihas.filter((esfiha) => esfiha.tipo === 'Salgada');
+            state.doce = esfihas.filter((esfiha) => esfiha.tipo === 'Doce');
+            return state;
+        })
     }
     
 });
 
-export const { teste } = esfihasSlice.actions;
+// export const { teste } = esfihasSlice.actions;
 export default esfihasSlice.reducer;
