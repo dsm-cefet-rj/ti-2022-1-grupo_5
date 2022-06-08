@@ -149,10 +149,6 @@ input[type=number] {
     color: var(--branco);
 }
 
-.botao:active {
-    box-shadow: none;
-}
-
 .botao__icon {
     font-size: 1.2rem;
     padding-right: .3rem;

@@ -1,8 +1,8 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useContext } from "react";
+import { PedidoContext } from "./pages/App";
 
 export default function ResumoPedido() {
-    const pedido = useSelector(state => state.pedido);
+    const {pedido} = useContext(PedidoContext);
     const frete = 5;
 
     return(

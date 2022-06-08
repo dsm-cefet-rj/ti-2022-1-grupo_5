@@ -2,190 +2,131 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Recheio from "../geral/recheio-esfiha";
-import { useDispatch, useSelector } from "react-redux";
-import { ingredientes as ingredientesBD } from "../data";
-import { selectRecheios } from "../../features/ingredientes-recheioSlice";
+import { getRecheios } from "../../features/ingredientes-recheioSlice";
+import { useDispatch } from "react-redux";
 
 const CriarEsfiha = () => {
-        // Dispatch do Redux
-        const dispatch = useDispatch();
+    // Dispatch do Redux
+    const dispatch = useDispatch();
 
-        // Variáveis que controlam estados do componente.
-        const [precoTotal, setPrecoTotal] = useState(0);
-        const [erro, setErro] = useState("");
-        const ingredientes = useSelector(selectRecheios);
-        const recheioEsfiha = useState([1]);
+    // Variáveis que controlam estados do componente.
+    const [precoTotal, setPrecoTotal] = useState(0);
+    const [erro, setErro] = useState("");
+    const [ingredientes, setIngredientes] = useState([]);
 
-        const getNomeEsfihaFromIngredientes = (ingredientes) => {
-                let nome = "Esfiha";
+    // função que adiciona a pizza customizada ao carrinho
+    const adicionarAoCarrinho = () => {
+            
+    // Gerar objeto da pizza customizada
+    let esfiha = {
+            id: 1,
+                    //Math.random()
+                    //        .toString(36)
+                    //        .substring(2, 15) +
+                    //Math.random()
+                    //        .toString(36)
+                    //        .substring(2, 15),
+            ingredientes: ingredientes,
+            recheio: getRecheios(),
+            preco: precoTotal,
+    };
+    // Adicionar a pizza customizada ao carrinho
+    dispatch(adicionarAoCarrinho(esfiha));
+    console.log(esfiha);
+    // Redirecionar para a página de carrinho
+    //createBrowserHistory().push("/carrinho");
+            
+    };
 
-                // Achatar metades, remover duplicados, e remover molho da lista
-                const flatIngredientes = [...new Set(ingredientes.flat())].filter(
-                (id) => id !== 12
-                );
+    useEffect(() => {
+            if (erro) {
+                    setErro("");
+            }
+             else {
+                    let preco = 0;
+                    for (let i = 0; i < ingredientes.length; i++) {}
+                    setPrecoTotal(preco);
+            }
+    },[erro, ingredientes.length]);
 
-                const prefixos = ["de", "com", "e"];
+    // Renderiza a página de criação de pizza.
+    return (
+            <>
+                    {/*<MenuNav Atual="criar-pizza" />*/}
+                    <form>
+                            <div className="container">
+                                    <div className="row">
+                                            <h1 className="text-center">
+                                                    Monte sua Esfiha
+                                            </h1>
+                                    </div>
+                                    <div className="row">
+                                            <h5
+                                                    className="text-center"
+                                                    style={{
+                                                            color: "red",
+                                                            textShadow: "0px 0px 10px black",
+                                                    }}
+                                            >
+                                                    {erro}
+                                            </h5>
+                                    </div>
+                                
+                                    <div
+                                            className="row"
+                                            style={{ textAlign: "center" }}
+                                    >
+                                            <h3 id="INGREDIENTES">
+                                                    Ingredientes
+                                            </h3>
+                                            <h4
+                                                    style={{
+                                                            color: "white",
 
-                for (let i = 0; i < 3; i++) {
-                if (flatIngredientes.length <= 0) break;
-                const idIngrediente = sortear(flatIngredientes);
-                const nomeIngrediente = getNomeIngredienteFromId(idIngrediente);
-                const prefixo = prefixos[Math.min(i, prefixos.length - 1)];
+                                                            textShadow: "1px 1px 4px black",
+                                                    }}
+                                            >
+                                                    Escolha até 6 ingredientes
+                                            </h4>
+                                    </div>
+                                    <Recheio
+                                            max_ingredientes={6}
+                                            key="1"
+                                            id={1}
+                                            active={true}
+                                    />
+                            </div>
+                            <hr />
+                            <div className="row">
+                                    <div
+                                            className="col-md-12"
+                                            style={{
+                                                    textAlign: "right",
+                                                    marginBottom: "20px",
+                                            }}
+                                    >
+                                            <h3>Preço total:</h3>
+                                    </div>
+                            </div>
+                    </form>
+                    <div className="row" style={{ textAlign: "center" }}>
+                            <Link
+                                    to="/menu"
+                                    style={{ margin: " 0 5px" }}
+                                    className="btn btn-lg btn-danger mb-5"
+                            >
+                                    Cancelar
+                            </Link>
 
-                nome += " " + prefixo + " " + nomeIngrediente;
-                }
-                return nome;
-        };
-
-        const getNomeIngredienteFromId = (id) => {
-                let ingrediente = ingredientesBD.find((ingrediente) => parseInt(ingrediente.id) === parseInt(id));
-                return "ingrediente.nome";
-        };
-
-        const sortear = (arr) => {
-                const item = arr[Math.floor(Math.random() * arr.length)];
-                arr.splice(arr.indexOf(item), 1);
-                return item;
-            };
-    
-    
-        // função que adiciona a pizza customizada ao carrinho
-        const adicionarAoCarrinho = () => {
-                if (erro !== "") {
-                        document.getElementById(`erro_message`).scrollIntoView({
-                            behavior: "auto",
-                            block: "center",
-                        });
-                        document.getElementById(`erro_message`).animate(
-                            {
-                                color: "yellow",
-                                textShadow: "50px 50px 50px red",
-                            },
-                            1000
-                        );
-                        return;
-                } else {
-                        const generate_id = () => {
-                                // Generate a id based on the ingredientes
-                                return crypto.randomUUID();
-                        };
-                        atualizarPreco();
-
-                        // Gerar objeto da pizza customizada
-                        let esfiha = {
-                                id: generate_id(),
-                                        //Math.random()
-                                        //        .toString(36)
-                                        //        .substring(2, 15) +
-                                        //Math.random()
-                                        //        .toString(36)
-                                        //        .substring(2, 15),
-                                nome: getNomeEsfihaFromIngredientes(ingredientes),
-                                valor: precoTotal,
-                                quantidade: 1,
-                                Recheios: ingredientes,
-                                descricao: "Ingredientes: " + ingredientes.flat().join(", "),
-                        };
-                        // Adicionar a pizza customizada ao carrinho
-                        dispatch(adicionarAoCarrinho(esfiha));
-                        console.log(esfiha);
-                        // Redirecionar para a página de carrinho
-                        //createBrowserHistory().push("/carrinho");
-                };        
-                
-        };
-
-        const atualizarPreco = () => {
-                let preco = 5;
-        
-                ingredientes.flat().forEach((id) => {
-                    let ingredienteObj = ingredientesBD.find((i) => {
-                        return i.id === parseInt(id);
-                    });
-                    preco += ingredienteObj.valor;
-                });
-        
-                setPrecoTotal(preco);
-        };
-
-        useEffect(() => {
-                if (erro) {
-                        setErro("");
-                }
-                else {
-                        atualizarPreco();
-                }
-        }, [ingredientes, erro]);
-
-        // Renderiza a página de criação de pizza.
-        return (
-                <>
-                        {/*<MenuNav Atual="criar-pizza" />*/}
-                        <form>
-                                <div className="container">
-                                        <div className="row">
-                                                <h1 className="text-center">
-                                                        Monte sua Esfiha
-                                                </h1>
-                                        </div>
-                                        
-                                        <div className="row" style={{ textAlign: "center" }}>
-                                                <h4
-                                                        style={{
-                                                                color: "white",
-                                                                textShadow: "1px 1px 4px black",
-                                                        }}
-                                                >
-                                                        Escolha até 6 ingredientes
-                                                </h4>
-                                        </div>
-                                        {[...Array(recheioEsfiha).keys()].map((index) => (
-                                        <Recheio max_ingredientes={6} key={index} id={index} />
-                                        ))}
-                                </div>
-                                <hr />
-                                <div className="row">
-                                        <div
-                                                className="col-md-12"
-                                                style={{
-                                                        textAlign: "right",
-                                                        marginBottom: "20px",
-                                                }}
-                                        >
-                                                <h3>Preço total:</h3>
-                                                <h3>
-                                                        {"R$: " + precoTotal.toFixed(2)}
-                                                </h3>
-                                        </div>
-                                </div>
-                        </form>
-                        <div 
-                                className="row section"
-                                style={{
-                                        textAlign: "center",
-                                        marginLeft: "auto",
-                                        marginRight: "auto",
-                                        width: "80%",
-                                        marginBottom: "1rem",
-                                }}
-                        >
-                                <span 
-                                        className="botao card__btn align-self-center" 
-                                        style={{
-                                                marginBottom: "0.5rem",
-                                        }}
-                                        onClick={adicionarAoCarrinho}
-                                >
-                                        <i className="bi bi-cart-plus-fill botao__icon"></i>
-                                        Comprar
-                                </span>
-                
-                                <Link to="/" className="btn btn-danger">
-                                        Cancelar
-                                </Link>
-                        </div>
-                </>
-        );
+                            <button
+                                    className="btn btn-lg btn-primary mb-5"
+                                    onClick={() => adicionarAoCarrinho()}
+                            >
+                                    Adicionar ao carrinho
+                            </button>
+                    </div>
+            </>
+    );
 };
 
 export default CriarEsfiha;

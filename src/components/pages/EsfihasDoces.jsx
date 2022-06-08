@@ -1,10 +1,15 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { CardEsfiha } from '../geral/CardEsfiha'
+import React, { useContext } from "react";
+import { PedidoContext } from "./App";
+import { CardEsfiha } from '../CardEsfiha'
 
 export default function EsfihasDoces() {
+    // eslint-disable-next-line no-restricted-globals
+    // scrollTo({
+    //     top: 0,
+    //     behavior: 'smooth'
+    // });
 
-    const esfihasDoce = useSelector(state => state.esfihas.doce);
+    const {esfihasDoce} = useContext(PedidoContext);
     
     return(
         <main className="container py-4">

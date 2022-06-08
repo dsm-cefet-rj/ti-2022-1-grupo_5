@@ -1,8 +1,6 @@
 import React, { useState } from  "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from 'react-router-dom';
-
 import "./lan.css";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
@@ -41,7 +39,6 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-<<<<<<< HEAD
         <div class="grid-container">
            <div class="grid-item">
           <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
@@ -55,12 +52,6 @@ export default function Login() {
         </div>
           
     </Form>
-=======
-        <Button block="true" size="lg" type="submit " disabled={!validateForm()}>
-        <Link to='/' className="btn">Login</Link>
-        </Button>
-      </Form>
->>>>>>> dba5ca05e64f59858cac79a17810a7e68b3dc4b8
     </div>
   );
 }
