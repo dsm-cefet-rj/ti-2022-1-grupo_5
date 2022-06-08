@@ -83,6 +83,20 @@
             "nome": "Morango",
             "img": "img/esfiha-morango.png",
             "valor": 6.0
+        },
+        {
+            "id": 13,
+            "tipo": "Personalizada",
+            "nome": "Salgada",
+            "img": "img/personalizadas-salgada.png",
+            "valor": 6.0
+        },
+        {
+            "id": 14,
+            "tipo": "Personalizada",
+            "nome": "Doce",
+            "img": "img/personalizadas-doce.png",
+            "valor": 6.0
         }
     ],
     "personalizadas": [

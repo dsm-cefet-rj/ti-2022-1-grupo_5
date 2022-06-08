@@ -7,7 +7,7 @@ export const getEsfihas = createAsyncThunk('esfihas/getEsfihas', async() =>
 
 export const esfihasSlice = createSlice({
     name: "esfihas",
-    initialState: { salgadas: [], doce: [] },
+    initialState: { salgadas: [], doce: [], personalizada: [] },
     reducers: {
 
     },
@@ -16,6 +16,7 @@ export const esfihasSlice = createSlice({
             const esfihas = action.payload;
             state.salgadas = esfihas.filter((esfiha) => esfiha.tipo === 'Salgada');
             state.doce = esfihas.filter((esfiha) => esfiha.tipo === 'Doce');
+            state.personalizada = esfihas.filter((esfiha) => esfiha.tipo === 'Personalizada');
             return state;
         })
     }

@@ -7,7 +7,7 @@ function Recomendacoes() {
 
     const recomendacaoSalgadas = useSelector(state => state.esfihas.salgadas.filter((esfiha, index) => index < 2));
     const recomendacaoDoce = useSelector(state => state.esfihas.doce.filter((esfiha, index) => index < 2));
-    const recomendacaoPersonalizada = useSelector(state => state.esfihas.doce.filter((esfiha, index) => index < 2));
+    const recomendacaoPersonalizada = useSelector(state => state.esfihas.personalizada.filter((esfiha, index) => index < 2));
 
     return (
         <main className="container py-5 px-4">

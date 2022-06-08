@@ -5,6 +5,7 @@ import Recheio from "../geral/recheio-esfiha";
 import { useDispatch, useSelector } from "react-redux";
 import { ingredientes as ingredientesBD } from "../data";
 import { selectRecheios } from "../../features/ingredientes-recheioSlice";
+import { adicionarItem as addCarrinho } from "../../features/pedido";
 
 const CriarEsfiha = () => {
         // Dispatch do Redux
@@ -50,7 +51,7 @@ const CriarEsfiha = () => {
     
     
         // função que adiciona a pizza customizada ao carrinho
-        const adicionarAoCarrinho = () => {
+        const adicionarItem = () => {
                 if (erro !== "") {
                         document.getElementById(`erro_message`).scrollIntoView({
                             behavior: "auto",
@@ -87,7 +88,7 @@ const CriarEsfiha = () => {
                                 descricao: "Ingredientes: " + ingredientes.flat().join(", "),
                         };
                         // Adicionar a pizza customizada ao carrinho
-                        dispatch(adicionarAoCarrinho(esfiha));
+                        dispatch(addCarrinho(esfiha));
                         console.log(esfiha);
                         // Redirecionar para a página de carrinho
                         //createBrowserHistory().push("/carrinho");
@@ -96,7 +97,7 @@ const CriarEsfiha = () => {
         };
 
         const atualizarPreco = () => {
-                let preco = 5;
+                let preco = 6;
         
                 ingredientes.flat().forEach((id) => {
                     let ingredienteObj = ingredientesBD.find((i) => {
@@ -174,7 +175,7 @@ const CriarEsfiha = () => {
                                         style={{
                                                 marginBottom: "0.5rem",
                                         }}
-                                        onClick={adicionarAoCarrinho}
+                                        onClick={adicionarItem}
                                 >
                                         <i className="bi bi-cart-plus-fill botao__icon"></i>
                                         Comprar
