@@ -1,12 +1,12 @@
 /* eslint-disable no-restricted-globals */
 import axios from "axios";
-import React, { useContext, useRef, useState } from "react";
-import CardPedido from "../CardPedido";
+import React, { useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import CardPedido from "../geral/CardPedido";
 import ResumoPedido from "../ResumoPedido";
-import { PedidoContext } from "./App";
 
 export default function Pedido() {
-    const {pedido, setPedido} = useContext(PedidoContext);
+    const pedido = useSelector(state => state.pedido);
     const [codIbge, setCodIbge] = useState(null);
     const cepRegex = /^[0-9]{8}$/g;
     const cep = useRef(null);
@@ -19,15 +19,15 @@ export default function Pedido() {
         }
     }
 
-    function realizarPedido() {
-        if (cepRegex.test(cep.current.value) && codIbge.slice(0,2) === '33') {
-            console.log(pedido);
-            setPedido([]);
-            alert('Pedido realizado!');
-        } else {
-            alert('É preciso inserir um CEP que seja do RJ');
-        }
-    }
+    // function realizarPedido() {
+    //     if (cepRegex.test(cep.current.value) && codIbge.slice(0,2) === '33') {
+    //         console.log(pedido);
+    //         setPedido([]);
+    //         alert('Pedido realizado!');
+    //     } else {
+    //         alert('É preciso inserir um CEP que seja do RJ');
+    //     }
+    // }
 
     if (pedido.length !== 0) {
         return (
@@ -60,7 +60,7 @@ export default function Pedido() {
 
                     </section>
                     
-                    <span className="botao" onClick={realizarPedido}><i className="bi bi-bag-check-fill botao__icon"></i>Finalizar pedido</span>
+                    <span className="botao" onClick={()=>{}}><i className="bi bi-bag-check-fill botao__icon"></i>Finalizar pedido</span>
                 </form>
 
             </main>

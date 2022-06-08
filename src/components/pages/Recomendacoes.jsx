@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { PedidoContext } from "./App";
-import { CardEsfiha } from '../CardEsfiha';
-import { CardPersonalizada } from '../CardPersonalizada';
+import { CardEsfiha } from '../geral/CardEsfiha';
 
 function Recomendacoes() {
-    const {esfihasSalgadas, esfihasDoce, personaliza} = useContext(PedidoContext);
-    const recomendacaoSalgadas = esfihasSalgadas.filter((esfiha, index) => index < 2);
-    const recomendacaoDoce = esfihasDoce.filter((esfiha, index) => index < 2);
-    const recomendacaoPersonalizada = personaliza.filter((esfiha, index) => index < 2);
+
+    const recomendacaoSalgadas = useSelector(state => state.esfihas.salgadas.filter((esfiha, index) => index < 2));
+    const recomendacaoDoce = useSelector(state => state.esfihas.doce.filter((esfiha, index) => index < 2));
+    const recomendacaoPersonalizada = useSelector(state => state.esfihas.doce.filter((esfiha, index) => index < 2));
+
     return (
         <main className="container py-5 px-4">
             <h1>Delivery de Esfihas</h1>
@@ -36,7 +36,7 @@ function Recomendacoes() {
             <section className="menu-esfihas my-5">
                 <h2 className="menu-esfihas__titulo">Esfihas Personalizadas</h2>
                 <section className="d-flex justify-content-around flex-wrap">    
-                {recomendacaoPersonalizada.map((esfiha, index) => <CardEsfiha esfihas={recomendacaoPersonalizada} index={index} key={index}/>)}
+                    {recomendacaoPersonalizada.map((esfiha, index) => <CardEsfiha esfihas={recomendacaoPersonalizada} index={index} key={index}/>)}
                 </section>
             </section>
 
