@@ -9,8 +9,6 @@ import NotFound from './components/pages/NotFound';
 import Login from './components/pages/Login';
 import CriarEsfiha from './components/pages/Criar-esfiha';
 import { getEsfihas } from './features/esfihas';
-import Register from './Register'
-import Profile from './Profile'
 
 
 export const PedidoContext = createContext();
@@ -91,8 +89,6 @@ export default function App() {
                 <Route path='/criar-esfiha' element={<CriarEsfiha/>}/>
                 <Route path='/pedido' element={<Pedido/>}/>
                 <Route path='*' element={<NotFound/>}/>
-                <Route path='/Register' element={<Register/>}/>
-                <Route path='/Profile' element={<Profile/>}/>
             </Routes>
         </BrowserRouter>
     );
