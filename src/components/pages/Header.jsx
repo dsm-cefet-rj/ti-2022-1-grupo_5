@@ -28,7 +28,7 @@ function Header(){
 
                         <section className="offcanvas-body">
                             <ul className="menu__lista">
-                                <li className="menu__item"><Link to="/" onClick={e => {document.querySelector('.bi-x-lg').click()}}>Login</Link></li>
+                                <li className="menu__item"><Link to="/Login" onClick={e => {document.querySelector('.bi-x-lg').click()}}>Login</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-salgadas' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Esfihas Salgadas</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-doces' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Esfihas Doces</Link></li>
                                 <li className="menu__item"><Link to='/pedido' onClick={e => {document.querySelector('.bi-x-lg').click()}}>Pedido</Link></li>

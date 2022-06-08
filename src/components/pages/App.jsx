@@ -7,6 +7,8 @@ import Pedido from './Pedido';
 import NotFound from './NotFound';
 import Login from './Login';
 import CriarEsfiha from './Criar-esfiha';
+import Register from './Register'
+import Profile from './Profile'
 
 
 export const PedidoContext = createContext();
@@ -200,6 +202,8 @@ export default function App() {
                 <Route path='/criar-esfiha' element={<CriarEsfiha/>}/>
                 <Route path='*' element={<NotFound/>}/>
                 <Route path='/Login' element={<Login/>}/>
+                <Route path='/Register' element={<Register/>}/>
+                <Route path='/Profile' element={<Profile/>}/>
             </Routes>
         </BrowserRouter>
     </PedidoContext.Provider>
