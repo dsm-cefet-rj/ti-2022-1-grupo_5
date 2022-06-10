@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const ingredientesRecheioSlice = createSlice({
         name: "GerirEsfiha",
         initialState: {
-                recheio: [[]],
+                recheio: [],
         },
         reducers: {
                 setRecheios: (state, { payload }) => {

@@ -6,8 +6,8 @@ import { useDispatch } from "react-redux";
 import "./ingrediente.css";
 
 /* 
-Componente: Metade
-Descrição:  Componente que renderiza a metade de um pizza personalizada
+Componente: Recheio
+Descrição:  Componente que renderiza a pizza personalizada
 */
 const Recheio = (props) => {
         const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const Recheio = (props) => {
                                 <div className="col">
                                 
                                         <div className="scrollmenu">
-                                                {ingredientesBD.map((ingrediente) => (
+                                                {ingredientes.filter((ingredientes)=> ingredientes.tipo === "Doce").map((ingrediente) => (
                                                 <div className="ingrediente" key={ingrediente.id}>
                                                         <p
                                                         className="form-check-label"

@@ -161,12 +161,11 @@ const CriarEsfiha = () => {
                                 </div>
                         </form>
                         <div 
-                                className="row section-btn"
+                                className="section-btn"
                                 style={{
                                         textAlign: "center",
                                         marginInline: "auto",
                                         width: "80%",
-                                        maxWidth: "1000px",
                                         marginBottom: "1rem",
                                 }}
                         >
