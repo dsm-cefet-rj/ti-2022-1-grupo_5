@@ -1,4 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const realizarPedido = createAsyncThunk('esfihas/realizarPedido', async(state) => 
+    (await axios.post('http://localhost:3004/pedido', state)).data
+);
 
 export const pedidoSlice = createSlice({
     name: "pedido",
@@ -28,8 +33,17 @@ export const pedidoSlice = createSlice({
             if(state[action.payload].qtd === 0) state.splice(action.payload, 1);
             return state;
         },
+        cancelarPedido: (state, action) => {
+            state = [];
+            return state;
+        }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(realizarPedido.fulfilled, state => {
+            return state;
+        })
     }
 });
 
-export const { adicionarItem, excluirItem, aumentarQtd, dimunuirQtd } = pedidoSlice.actions;
+export const { adicionarItem, excluirItem, aumentarQtd, dimunuirQtd, cancelarPedido} = pedidoSlice.actions;
 export default pedidoSlice.reducer;

@@ -23,5 +23,4 @@ export const esfihasSlice = createSlice({
     
 });
 
-// export const { teste } = esfihasSlice.actions;
 export default esfihasSlice.reducer;

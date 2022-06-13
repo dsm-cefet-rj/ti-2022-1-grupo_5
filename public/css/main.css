@@ -8,6 +8,7 @@
     --cinza-claro: #EEE;
     --preto: #000;
     --verde: #92BA92;
+    --vermelho: #F24C4C;
 
     --fonte-funcionalidades: 'Roboto', sans-serif;
     --fonte-conteudo: 'Open Sans', sans-serif;
@@ -114,7 +115,7 @@ table tr {
     border-bottom: 1px solid #000;
 }
 
-input {
+input, label {
     cursor: pointer;
 }
 
@@ -142,6 +143,15 @@ input[type=number] {
     padding: 0.3rem 0.7rem;
     text-decoration: none;
     transition: .3s;
+}
+
+.botao--confirmar {
+    font-size: 1.3rem;
+}
+
+.botao--cancelar {
+    background-color: var(--vermelho);
+    font-size: 1.3rem;
 }
 
 .botao:hover {
