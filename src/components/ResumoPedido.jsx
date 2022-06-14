@@ -17,7 +17,7 @@ export default function ResumoPedido() {
             </thead>
 
             <tbody>
-                {pedido.map(item => 
+                {pedido.itens.map(item => 
                     <tr>
                         <td>{item.nome}</td>
                         <td>R${item.valor}</td>
@@ -31,7 +31,7 @@ export default function ResumoPedido() {
                     <td>-</td>
                     <td>R$
                     {
-                        pedido
+                        pedido.itens
                         .map(item => item.qtd * item.valor)
                         .reduce((valorAnterior, valorAtual) => 
                             valorAnterior + valorAtual
@@ -66,7 +66,7 @@ export default function ResumoPedido() {
                     <td>-</td>
                     <td>R$
                     {
-                        pedido
+                        pedido.itens
                         .map(item => item.qtd * item.valor )
                         .reduce((valorAnterior, valorAtual) => 
                             valorAnterior + valorAtual 

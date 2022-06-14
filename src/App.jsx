@@ -16,27 +16,11 @@ export const PedidoContext = createContext();
 
 export default function App() {
 
-    /*const personalizadas = [
-        {
-            id : 1,
-            tipo : 'Personalizada',
-            nome : 'Salgada',
-            img: 'img/personalizadas-salgada.png'
-        },
-        {
-            id : 2,
-            tipo : 'Personalizada',
-            nome : 'Doce',
-            img: 'img/personalizadas-doce.png'
-        },
-    
-    ];*/
-
     function menuCollapse() {
         document.querySelector('.bi-x-lg').click();
     }
 
-    const pedido = useSelector(state => state.pedido);
+    const itensPedido = useSelector(state => state.pedido.itens);
 
     const dispatch = useDispatch();
 
@@ -60,7 +44,7 @@ export default function App() {
                         </Link>
                         <Link to='/pedido' className="position-relative">
                             <i className="bi bi-cart"></i>
-                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{(pedido.length === 0) ? '' : pedido.reduce((pre, cur) => pre + cur.qtd,0)}</span>
+                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{(itensPedido.length === 0) ? '' : itensPedido.reduce((pre, cur) => pre + cur.qtd,0)}</span>
                         </Link>
                     </section>
 

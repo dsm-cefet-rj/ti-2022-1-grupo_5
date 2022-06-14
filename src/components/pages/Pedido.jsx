@@ -21,7 +21,7 @@ export default function Pedido() {
         }
     }
 
-    if (pedido.length !== 0) {
+    if (pedido.itens.length !== 0) {
         return (
             <main className="container pedido py-5">
                 <h2>Pedido</h2>
@@ -32,7 +32,7 @@ export default function Pedido() {
 
                         <section className="menu-esfihas my-2">
                             <section className="d-flex justify-content-around flex-wrap"> 
-                                {pedido.map((item, index) => <CardPedido index={index}/>)}                                     
+                                {pedido.itens.map((item, index) => <CardPedido index={index} key={index}/>)}                                    
                             </section>
                         </section>
 
