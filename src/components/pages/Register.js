@@ -26,13 +26,11 @@ export default function Login() {
       nome: '',
       email: '',
       cep: '',
-      age: '',
     },
     onSubmit: function (values) {
       alert(`Voce esta registrado! 
       Nome: ${values.name}.
-      Email: ${values.email}. 
-      Idade: ${values.age} 
+      Email: ${values.email}.  
       Cep: ${values.cep} `);
     },
 
@@ -60,50 +58,50 @@ export default function Login() {
   
 
   return (
-    <div className="Loginform">
-      <form onSubmit={formik.handleSubmit} className="loginform">
-      <h1 className='Loginform'>Cadastro</h1>
-        <div className='Login'>
-          <label for="name">Nome Completo: &nbsp;&nbsp;</label>
-          <input type="text" name="name" id="name" 
-            className={`block w-full rounded border py-1 px-2 ${formik.touched.name && formik.errors.name ? 'border-red-400' : 'border-gray-300'}`}
-            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.name} />
-          {formik.touched.name && formik.errors.name && (
-            <span className='text-red-400'>{formik.errors.name}</span>
-          )}
-        </div>
-        <div className='Login'>
-          <label for="email">Email:&nbsp;&nbsp; </label>
-          <input type="email" name="email" id="email"
-            className={`block w-full rounded border py-1 px-2 ${formik.touched.email && formik.errors.email ? 'border-red-400' : 'border-gray-300'}`}
-            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
-          {formik.touched.email && formik.errors.email && (
-            <span className='text-red-400'>{formik.errors.email}</span>
-          )}
-        </div>
-        <div className='Login'>
-          <label for="cep">CEP:&nbsp;&nbsp;</label>
-          <input type="number" name="cep" id="cep"
-            className={`block w-full rounded border py-1 px-2 ${formik.touched.cep && formik.errors.cep ? 'border-red-400' : 'border-gray-300'}`}
-            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.cep} />
-          {formik.touched.cep && formik.errors.cep && (
-            <span className='text-red-400'>{formik.errors.cep}</span>
-          )}
-        </div>
-        
-        <div className='Login'>
-          <label for="age">Idade: &nbsp;&nbsp;</label>
-          <input type="number" name="age" id="age"
-            className={`block w-full rounded border py-1 px-2 ${formik.touched.age && formik.errors.age}`}
-            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.age} />
-          {formik.touched.age && formik.errors.age && (
-            <span className='text-red-400'>{formik.errors.age}</span>
-          )}
-        </div>
-      
-          <Button className='grid-item' text-align = "center" type='submit'>Criar Conta</Button>
-       
-      </form>
-    </div>
+    <main className="container pedido py-5">
+                <h2>Cadastro</h2>
+                <form  className="col">
+                <form className="pedido__form" onSubmit={formik.handleSubmit}>
+
+                    <section className="pedido__form-section">
+
+                        <section className="row mx-5">
+                                <div className="form-floating col-lg-12 col-sm-6 p-2 my-2">
+                                  <input type="name" className = "form-control" name="name" id="name" placeholder= " "
+                                    onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.name} />
+                                  {formik.touched.name}
+                                    <label htmlFor="Nome">Nome Completo:</label>
+                                    <span>{formik.errors.name}</span>
+                                    <p className="erro"></p>
+                                </div>
+
+                                <div className="form-floating col-lg-12 col-sm-6 p-2 my-2">
+                                  <input type="email" className = "form-control" name="email" id="email" placeholder= " "
+                                    onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
+                                  {formik.touched.email}
+                                    <label htmlFor="email">Email:</label>
+                                    <span>{formik.errors.email}</span>
+                                    <p className="erro"></p>
+                                </div>
+
+                                <div className="form-floating col-lg-12 col-sm-6 p-2 my-2">
+                                  <input type="cep" className = "form-control" name="cep" id="cep" placeholder= " "
+                                    onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.cep} />
+                                  {formik.touched.name}
+                                    <label htmlFor="CEP">CEP:</label>
+                                    <span>{formik.errors.cep}</span>
+                                    <p className="erro"></p>
+                                </div>
+                        </section>
+            
+
+                    </section>
+                    
+                    <section className="pedido__form-section flex-row">
+                    <Button className='grid-item' text-align = "center" type='submit'>Criar Conta</Button>
+                    </section>
+                </form>
+</form>
+            </main>
   );
 }

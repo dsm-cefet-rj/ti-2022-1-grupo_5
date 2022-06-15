@@ -1,15 +1,18 @@
 import React, { useState } from  "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import { Link } from 'react-router-dom';
-import { useFormik } from 'formik';
+import { Formik, useFormik } from 'formik';
+import Button from "react-bootstrap/Button";
 import * as Yup from 'yup';
-import "./lan.css";
+import { useForm } from "react-hook-form";
+import "./lan.css"
+import { useDispatch } from "react-redux";
+import { cadastrarUsuario } from "../../features/usuario";
 
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -19,6 +22,9 @@ export default function Login() {
     event.preventDefault();
   }
 
+
+
+
   const formik = useFormik({
     
     initialValues: {
@@ -26,10 +32,8 @@ export default function Login() {
       senha: '',
     },
     onSubmit: function (values) {
-      alert(`Voce entrou na sua conta! 
-      Nome: ${values.email}.
-      senha: ${values.senha}. 
-      } `);
+      const usuario = values;
+      dispatch(cadastrarUsuario(usuario));
     },
 
     validationSchema: Yup.object({
@@ -45,29 +49,35 @@ export default function Login() {
   
 
   return (
-    <div className="Loginform">
-      <form onSubmit={formik.handleSubmit} className="loginForm">
-      <h1 className='Loginform' >Login</h1>
-        <div className='Loginfrom'>
-          <label for="email">Email:&nbsp;&nbsp; &nbsp;</label>
-          <input type="email" name="email" id="email"
-            className={`block w-full rounded border py-1 px-2${formik.touched.email && formik.errors.email}`}
-            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
-          {formik.touched.email && formik.errors.email && (
-            <span className='text-red-400'>{formik.errors.email}</span>
-          )}
-        </div>
-        
-        <div className='Login'>
-          <label for="senha">Senha:&nbsp;&nbsp;</label>
-          <input type="string" name="senha" id="senha"
-            className={`block w-full rounded border py-1 px-2${formik.touched.senha && formik.errors.senha ? 'border-red-400' : 'border-gray-300'}`}
-            onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.senha} />
-          {formik.touched.senha && formik.errors.senha && (
-            <span className='text-red-400'>{formik.errors.senha}</span>
-          )}
-        </div>
-        <div class="grid-container">
+    
+                <main className="container pedido py-5">
+                <h2>Login</h2>
+                <form  className="col">
+                <form className="pedido__form" onSubmit={formik.handleSubmit}>
+
+                    <section className="pedido__form-section">
+
+                        <section className="row mx-5">
+                                <div className="form-floating col-lg-12 col-sm-6 p-2 my-2">
+                                  <input type="email" className = "form-control" name="email" id="email" placeholder= " "
+                                    onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
+                                  {formik.touched.email}
+                                    <label htmlFor="email">Email:</label>
+                                    <p className="erro">{formik.errors.email}</p>
+                                </div>
+
+                                <div className="form-floating col-lg-12 col-sm-6 p-2 my-2">
+                                <input type="senha" className = "form-control" name="senha" id="senha" placeholder= " "
+                                    onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.senha} />
+                                  {formik.touched.senha}
+                                    <label htmlFor="email">Senha:</label>
+                                    <p className="erro">{formik.errors.senha}</p>
+                                </div>
+                        </section>
+            
+
+                    </section>
+                    <div class="grid-container">
           <div class="grid-item">
           <Button block="true" size="lg" type="submit" >
           <Link to='/' text-align = "center" className="Login">Login</Link>
@@ -77,7 +87,11 @@ export default function Login() {
           <Button block="true" size="lg" type="submit">
            <Link to='/Register'  text-align = "center"className="Login">Criar Conta</Link>
         </Button></div></div></div>
-      </form>
-    </div>
+                    <section className="pedido__form-section flex-row">
+                        
+                    </section>
+                </form>
+</form>
+            </main>
   );
 }

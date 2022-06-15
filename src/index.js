@@ -6,19 +6,20 @@ import { configureStore } from '@reduxjs/toolkit';
 import criarEsfiha from './features/personalizada-salgada';
 import ingredientesEsfihaSlice from './features/ingredientes-recheioSlice';
 import esfihasReducer from './features/esfihas';
-import pedidoReducer from './features/pedido'
+import pedidoReducer from './features/pedido';
+import usuarioReducer from './features/usuario';
 import ingredientesSlice from "./features/ingredientesSlice";
 
 
 
 const store = configureStore({
   reducer: {
+      usuario: usuarioReducer,
       criarEsfiha: criarEsfiha,
       ingredientesRecheio: ingredientesEsfihaSlice,
       esfihas: esfihasReducer,
       pedido: pedidoReducer,
       ingredient: ingredientesSlice,
-
   },
 });
 
