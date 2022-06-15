@@ -7,7 +7,7 @@ import criarEsfiha from './features/personalizada-salgada';
 import ingredientesEsfihaSlice from './features/ingredientes-recheioSlice';
 import esfihasReducer from './features/esfihas';
 import pedidoReducer from './features/pedido'
-import ingredientesSlice from "./features/gerir-ingredientesSlice";
+import ingredientesSlice from "./features/ingredientesSlice";
 
 
 
@@ -17,7 +17,7 @@ const store = configureStore({
       ingredientesRecheio: ingredientesEsfihaSlice,
       esfihas: esfihasReducer,
       pedido: pedidoReducer,
-      ingredientes: ingredientesSlice,
+      ingredient: ingredientesSlice,
 
   },
 });

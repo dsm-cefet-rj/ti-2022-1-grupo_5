@@ -9,6 +9,7 @@ import NotFound from './components/pages/NotFound';
 import Login from './components/pages/Login';
 import CriarEsfiha from './components/pages/Criar-esfiha';
 import { getEsfihas } from './features/esfihas';
+import { getIngredientes } from './features/ingredientesSlice';
 import Register from './components/pages/Register';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
@@ -27,7 +28,7 @@ export default function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getEsfihas());
+        dispatch(getEsfihas(), getIngredientes());
     }, [dispatch]);
 
     return(

@@ -88,15 +88,8 @@
     {
       "id": 13,
       "tipo": "Personalizada",
-      "nome": "Salgada",
+      "nome": "Personalizada",
       "img": "img/personalizadas-salgada.png",
-      "valor": 6
-    },
-    {
-      "id": 14,
-      "tipo": "Personalizada",
-      "nome": "Doce",
-      "img": "img/personalizadas-doce.png",
       "valor": 6
     }
   ],
@@ -201,19 +194,6 @@
     }
   ],
   "pedidos": [
-    {
-      "itens": [
-        {
-          "id": 1,
-          "tipo": "Salgada",
-          "nome": "3 Queijos",
-          "img": "img/esfiha-3-queijos.png",
-          "valor": 5,
-          "qtd": 1
-        }
-      ],
-      "info": {},
-      "id": 1
-    }
+    
   ]
 }

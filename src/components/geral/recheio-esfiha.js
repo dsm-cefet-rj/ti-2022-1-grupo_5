@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { ingredientes as ingredientesBD } from "../data";
 import { setRecheios } from "../../features/ingredientes-recheioSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import "./ingrediente.css";
 
 /* 
@@ -12,11 +12,10 @@ Descrição:  Componente que renderiza a pizza personalizada
 const Recheio = (props) => {
         const dispatch = useDispatch();
 
-        // Variáveis que controlam se a metade esta ative e quanta recheio existem.
         const [id] = useState(props.id);
         const max_ingredientes = props.max_ingredientes
                 ? props.max_ingredientes
-                : 6;        
+                : 5;
         // Variáveis que controlam os ingredientes selecionados.
         const [ingredientes, setIngredientes] = useState([]);
 
@@ -54,45 +53,62 @@ const Recheio = (props) => {
                 <>
                         <div className="row section" style={{ marginBottom: "15px", marginTop: "30px" }}>
                                 <div className="col">
-                                
-                                        <div className="scrollmenu">
-                                                {ingredientes.filter((ingredientes)=> ingredientes.tipo === "Doce").map((ingrediente) => (
-                                                <div className="ingrediente" key={ingrediente.id}>
-                                                        <p
-                                                        className="form-check-label"
-                                                        htmlFor={ingrediente.id.toString()}
-                                                        >
-                                                        {ingrediente.nome}
-                                                        </p>
-                                                        <img
-                                                        src={ingrediente.img}
-                                                        alt="Esfiha"
-                                                        style={{
-                                                                width: "90px",
-                                                                borderRadius: "10px",
 
-                                                        }}
-                                                        />
-                                                        <br />
-                                                        <input
-                                                        className="form-check-input"
-                                                        type="checkbox"
-                                                        style={{
-                                                                width: "30px",
-                                                                height: "30px",
-                                                        }}
-                                                        value={ingrediente.id.toString()}
-                                                        id={ingrediente.id.toString()}
-                                                        onChange={handleCheckbox}
-                                                        />
-                                                        <p>R$ {ingrediente.valor.toFixed(2)}</p>
-                                                </div>
+                                        <div className="scrollmenu">
+                                                {/*Se estiver no path /criar-esfiha
+                                                Percorre a array de ingredientes filtrando os ingredientes dos tipos Salgado e Neutro.*/}
+                                                
+
+                                                {ingredientesBD/*.filter( (ingrediente) => { return ingrediente.tipo === "Salgado" || ingrediente.tipo === "Neutro" })*/.map((ingrediente) => (
+                                                        <div className="ingrediente" key={ingrediente.id}>
+                                                                <p
+                                                                        className="form-check-label"
+                                                                        htmlFor={ingrediente.id.toString()}
+                                                                        style={{fontFamily: "Roboto-bold",
+                                                                                fontSize: "17px",
+                                                                                textAlign: "center",
+                                                                        }}
+                                                                >
+                                                                        {ingrediente.nome}
+                                                                </p>
+                                                                <img
+                                                                        src={ingrediente.img}
+                                                                        alt="ingrediente"
+                                                                        style={{
+                                                                                width: "90px",
+                                                                                borderRadius: "10px",
+                                                                                height: "90px",
+                                                                                marginBottom: "6px",
+
+                                                                        }}
+                                                                />
+                                                                <br />
+                                                                <input
+                                                                        className="form-check-input"
+                                                                        type="checkbox"
+                                                                        style={{
+                                                                                width: "30px",
+                                                                                height: "30px",
+                                                                                boxShadow: "inset 0 0 5px grey",
+                                                                        }}
+                                                                        value={ingrediente.id.toString()}
+                                                                        id={ingrediente.id.toString()}
+                                                                        onChange={handleCheckbox}
+                                                                />
+                                                                <p 
+                                                                        style={{textAlign: "center",
+                                                                                marginTop: "5px",
+                                                                                fontSize: "17px",
+                                                                                fontFamily: "Roboto-bold",
+                                                                        }}
+                                                                >R$ {ingrediente.valor.toFixed(2)}</p>
+                                                        </div>
                                                 ))}
                                         </div>
                                 </div>
                         </div>
                 </>
         );
-}; 
+};
 
 export default Recheio;
