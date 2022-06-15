@@ -57,8 +57,13 @@ export default function Pedido() {
     });
 
     function submitForm(data) {
-        dispatch(adicionarInfo(data));
-        dispatch(realizarPedido(pedido));
+        const pedidoForm = {...pedido};
+        pedidoForm.info = data;
+        pedidoForm.info.frete = 5;
+        pedidoForm.info.total = pedidoForm.itens.map(item => item.qtd * item.valor ).reduce((valorAnterior, valorAtual) => 
+                                valorAnterior + valorAtual 
+                            ,pedidoForm.info.frete);
+        dispatch(realizarPedido(pedidoForm));
     }
 
     if (pedido.itens.length !== 0) {
