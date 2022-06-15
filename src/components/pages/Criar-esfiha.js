@@ -84,7 +84,7 @@ const CriarEsfiha = () => {
                         };
                         // Adicionar a pizza customizada ao carrinho
                         dispatch(addCarrinho(esfiha));
-                        toast.success(`Esfiha ${esfiha.nome} adicionada!`, {
+                        toast.success(`${esfiha.nome} adicionada!`, {
                                 position: "bottom-center",
                                 autoClose: 3000,
                                 hideProgressBar: false,
