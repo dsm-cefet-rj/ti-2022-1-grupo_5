@@ -131,6 +131,11 @@ input[type=number] {
 
 /* Classes gerais */
 
+.erro {
+    color: var(--cinza-claro);
+    text-align: left;
+}
+
 .botao {
     background-color: var(--verde);
     border: 0;

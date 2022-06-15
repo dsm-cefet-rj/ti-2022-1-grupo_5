@@ -1,212 +1,219 @@
 {
-    "usuarios": [
-
-    ],
-    "esfihas": [
+  "usuarios": [],
+  "esfihas": [
+    {
+      "id": 1,
+      "tipo": "Salgada",
+      "nome": "3 Queijos",
+      "img": "img/esfiha-3-queijos.png",
+      "valor": 5
+    },
+    {
+      "id": 2,
+      "tipo": "Salgada",
+      "nome": "Atum",
+      "img": "img/esfiha-atum.png",
+      "valor": 4
+    },
+    {
+      "id": 3,
+      "tipo": "Salgada",
+      "nome": "Bacon",
+      "img": "img/esfiha-bacon.png",
+      "valor": 5
+    },
+    {
+      "id": 4,
+      "tipo": "Salgada",
+      "nome": "Carne",
+      "img": "img/esfiha-carne.png",
+      "valor": 4
+    },
+    {
+      "id": 5,
+      "tipo": "Salgada",
+      "nome": "Frango com catupiry",
+      "img": "img/esfiha-frango-catupiry.png",
+      "valor": 5
+    },
+    {
+      "id": 6,
+      "tipo": "Salgada",
+      "nome": "Manjericão",
+      "img": "img/esfiha-manjericão.png",
+      "valor": 4
+    },
+    {
+      "id": 7,
+      "tipo": "Doce",
+      "nome": "Banana",
+      "img": "img/esfiha-banana.png",
+      "valor": 6
+    },
+    {
+      "id": 8,
+      "tipo": "Doce",
+      "nome": "Brigadeiro",
+      "img": "img/esfiha-brigadeiro.png",
+      "valor": 6
+    },
+    {
+      "id": 9,
+      "tipo": "Doce",
+      "nome": "Chocolate branco",
+      "img": "img/esfiha-chocolate-branco.png",
+      "valor": 6
+    },
+    {
+      "id": 10,
+      "tipo": "Doce",
+      "nome": "Chocolate com confete",
+      "img": "img/esfiha-chocolate-confete.png",
+      "valor": 6
+    },
+    {
+      "id": 11,
+      "tipo": "Doce",
+      "nome": "Doce de Leite",
+      "img": "img/esfiha-doce-leite.png",
+      "valor": 6
+    },
+    {
+      "id": 12,
+      "tipo": "Doce",
+      "nome": "Morango",
+      "img": "img/esfiha-morango.png",
+      "valor": 6
+    },
+    {
+      "id": 13,
+      "tipo": "Personalizada",
+      "nome": "Salgada",
+      "img": "img/personalizadas-salgada.png",
+      "valor": 6
+    },
+    {
+      "id": 14,
+      "tipo": "Personalizada",
+      "nome": "Doce",
+      "img": "img/personalizadas-doce.png",
+      "valor": 6
+    }
+  ],
+  "personalizadas": [
+    {
+      "id": 1,
+      "tipo": "Personalizada",
+      "nome": "Salgada",
+      "img": "img/personalizadas-salgada.png"
+    },
+    {
+      "id": 2,
+      "tipo": "Personalizada",
+      "nome": "Doce",
+      "img": "img/personalizadas-doce.png"
+    }
+  ],
+  "ingredientes": [
+    {
+      "id": 1,
+      "tipo": "Neutro",
+      "nome": "Queijo Mussarela",
+      "img": "img/ingrediente-queijo-mussarela.png",
+      "valor": 3
+    },
+    {
+      "id": 2,
+      "tipo": "Salgado",
+      "nome": "Cebola",
+      "img": "img/ingrediente-cebola.png",
+      "valor": 1
+    },
+    {
+      "id": 3,
+      "tipo": "Salgado",
+      "nome": "Frango",
+      "img": "img/ingrediente-frango.png",
+      "valor": 2
+    },
+    {
+      "id": 4,
+      "tipo": "Salgado",
+      "nome": "Oregano",
+      "img": "img/ingrediente-oregano.png",
+      "valor": 1
+    },
+    {
+      "id": 5,
+      "tipo": "Salgado",
+      "nome": "Tomate",
+      "img": "img/ingrediente-carne-moida.png",
+      "valor": 1
+    },
+    {
+      "id": 6,
+      "tipo": "Doce",
+      "nome": "Chocolate",
+      "img": "img/ingrediente-chocolate.png",
+      "valor": 2
+    },
+    {
+      "id": 7,
+      "tipo": "Doce",
+      "nome": "Granulado",
+      "img": "img/ingrediente-granulado.png",
+      "valor": 1
+    },
+    {
+      "id": 8,
+      "tipo": "Doce",
+      "nome": "Morango",
+      "img": "img/ingrediente-morango.png",
+      "valor": 2
+    },
+    {
+      "id": 9,
+      "tipo": "Doce",
+      "nome": "Doce de leite",
+      "img": "img/ingrediente-doce-de-leite.png",
+      "valor": 1
+    },
+    {
+      "id": 10,
+      "tipo": "Salgado",
+      "nome": "Catupiry",
+      "img": "img/ingrediente-catupiry.png",
+      "valor": 1
+    },
+    {
+      "id": 11,
+      "tipo": "Doce",
+      "nome": "Confete",
+      "img": "img/ingrediente-confete.png",
+      "valor": 1
+    },
+    {
+      "id": 12,
+      "tipo": "Salgado",
+      "nome": "Molho de tomate",
+      "img": "img/ingrediente-molho-de-tomate.jpg",
+      "valor": 1
+    }
+  ],
+  "pedidos": [
+    {
+      "itens": [
         {
-            "id": 1,
-            "tipo": "Salgada",
-            "nome": "3 Queijos",
-            "img": "img/esfiha-3-queijos.png",
-            "valor": 5.0
-        },
-        {
-            "id": 2,
-            "tipo": "Salgada",
-            "nome": "Atum",
-            "img": "img/esfiha-atum.png",
-            "valor": 4.0
-        },
-        {
-            "id": 3,
-            "tipo": "Salgada",
-            "nome": "Bacon",
-            "img": "img/esfiha-bacon.png",
-            "valor": 5.0
-        },
-        {
-            "id": 4,
-            "tipo": "Salgada",
-            "nome": "Carne",
-            "img": "img/esfiha-carne.png",
-            "valor": 4.0
-        },
-        {
-            "id": 5,
-            "tipo": "Salgada",
-            "nome": "Frango com catupiry",
-            "img": "img/esfiha-frango-catupiry.png",
-            "valor": 5.0
-        },
-        {
-            "id": 6,
-            "tipo": "Salgada",
-            "nome": "Manjericão",
-            "img": "img/esfiha-manjericão.png",
-            "valor": 4.0
-        },
-        {
-            "id": 7,
-            "tipo": "Doce",
-            "nome": "Banana",
-            "img": "img/esfiha-banana.png",
-            "valor": 6.0
-        },
-        {
-            "id": 8,
-            "tipo": "Doce",
-            "nome": "Brigadeiro",
-            "img": "img/esfiha-brigadeiro.png",
-            "valor": 6.0
-        },
-        {
-            "id": 9,
-            "tipo": "Doce",
-            "nome": "Chocolate branco",
-            "img": "img/esfiha-chocolate-branco.png",
-            "valor": 6.0
-        },
-        {
-            "id": 10,
-            "tipo": "Doce",
-            "nome": "Chocolate com confete",
-            "img": "img/esfiha-chocolate-confete.png",
-            "valor": 6.0
-        },
-        {
-            "id": 11,
-            "tipo": "Doce",
-            "nome": "Doce de Leite",
-            "img": "img/esfiha-doce-leite.png",
-            "valor": 6.0
-        },
-        {
-            "id": 12,
-            "tipo": "Doce",
-            "nome": "Morango",
-            "img": "img/esfiha-morango.png",
-            "valor": 6.0
-        },
-        {
-            "id": 13,
-            "tipo": "Personalizada",
-            "nome": "Salgada",
-            "img": "img/personalizadas-salgada.png",
-            "valor": 6.0
-        },
-        {
-            "id": 14,
-            "tipo": "Personalizada",
-            "nome": "Doce",
-            "img": "img/personalizadas-doce.png",
-            "valor": 6.0
+          "id": 1,
+          "tipo": "Salgada",
+          "nome": "3 Queijos",
+          "img": "img/esfiha-3-queijos.png",
+          "valor": 5,
+          "qtd": 1
         }
-    ],
-    "personalizadas": [
-        {
-            "id": 1,
-            "tipo": "Personalizada",
-            "nome": "Salgada",
-            "img": "img/personalizadas-salgada.png"
-        },
-        {
-            "id": 2,
-            "tipo": "Personalizada",
-            "nome": "Doce",
-            "img": "img/personalizadas-doce.png"
-        }
-    ],
-    "ingredientes": [
-        {
-            "id": 1,
-            "tipo": "Neutro",
-            "nome": "Queijo Mussarela",
-            "img": "img/ingrediente-queijo-mussarela.png",
-            "valor": 3.0
-        },
-        {
-            "id": 2,
-            "tipo": "Salgado",
-            "nome": "Cebola",
-            "img": "img/ingrediente-cebola.png",
-            "valor": 1.0
-    
-        },
-        {
-            "id": 3,
-            "tipo": "Salgado",
-            "nome": "Frango",
-            "img": "img/ingrediente-frango.png",
-            "valor": 2.0
-        },
-        {
-            "id": 4,
-            "tipo": "Salgado",
-            "nome": "Oregano",
-            "img": "img/ingrediente-oregano.png",
-            "valor": 1.0
-        },
-        {
-            "id": 5,
-            "tipo": "Salgado",
-            "nome": "Tomate",
-            "img": "img/ingrediente-carne-moida.png",
-            "valor": 1.0
-    
-        },
-        {
-            "id": 6,
-            "tipo": "Doce",
-            "nome": "Chocolate",
-            "img": "img/ingrediente-chocolate.png",
-            "valor": 2.0
-    
-        },
-        {
-            "id": 7,
-            "tipo": "Doce",
-            "nome": "Granulado",
-            "img": "img/ingrediente-granulado.png",
-            "valor": 1.0
-    
-        },
-        {
-            "id": 8,
-            "tipo": "Doce",
-            "nome": "Morango",
-            "img": "img/ingrediente-morango.png",
-            "valor": 2.0
-        },
-        {
-            "id": 9,
-            "tipo": "Doce",
-            "nome": "Doce de leite",
-            "img": "img/ingrediente-doce-de-leite.png",
-            "valor": 1.0
-        },
-        {
-            "id": 10,
-            "tipo": "Salgado",
-            "nome": "Catupiry",
-            "img": "img/ingrediente-catupiry.png",
-            "valor": 1.0
-        },
-        {
-            "id": 11,
-            "tipo": "Doce",
-            "nome": "Confete",
-            "img": "img/ingrediente-confete.png",
-            "valor": 1.0
-        },
-        {
-            "id": 12,
-            "tipo": "Salgado",
-            "nome": "Molho de tomate",
-            "img": "img/ingrediente-molho-de-tomate.jpg",
-            "valor": 1.0
-        }
-    ],
-    "pedidos": [
-
-    ]
+      ],
+      "info": {},
+      "id": 1
+    }
+  ]
 }

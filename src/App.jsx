@@ -10,6 +10,8 @@ import Login from './components/pages/Login';
 import CriarEsfiha from './components/pages/Criar-esfiha';
 import { getEsfihas } from './features/esfihas';
 import Register from './components/pages/Register';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 //import Profile from './components/pages/Profile';
 
 export const PedidoContext = createContext();
@@ -66,6 +68,18 @@ export default function App() {
 
             </header>
 
+            <ToastContainer
+                position="bottom-center"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+            
             <Routes>
                 <Route path='/' element={<Recomendacoes/>}/>
                 <Route path='/Login' element={<Login/>}/>

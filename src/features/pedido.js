@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const realizarPedido = createAsyncThunk('esfihas/realizarPedido', async(state) => 
-    (await axios.post('http://localhost:3004/pedido', state)).data
+    (await axios.post('http://localhost:3004/pedidos', state)).data
 );
 
 export const pedidoSlice = createSlice({
@@ -36,6 +36,14 @@ export const pedidoSlice = createSlice({
         cancelarPedido: (state, action) => {
             state.itens = [];
             return state;
+        },
+        adicionarInfo: (state, action) => {
+            state.info = action.payload;
+            state.info.frete = 5;
+            state.info.total = state.itens.map(item => item.qtd * item.valor ).reduce((valorAnterior, valorAtual) => 
+                                    valorAnterior + valorAtual 
+                                ,state.info.frete);
+            return state;
         }
     },
     extraReducers: (builder) => {
@@ -45,5 +53,5 @@ export const pedidoSlice = createSlice({
     }
 });
 
-export const { adicionarItem, excluirItem, aumentarQtd, dimunuirQtd, cancelarPedido} = pedidoSlice.actions;
+export const { adicionarItem, excluirItem, aumentarQtd, dimunuirQtd, cancelarPedido, adicionarInfo} = pedidoSlice.actions;
 export default pedidoSlice.reducer;

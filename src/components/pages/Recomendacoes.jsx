@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CardEsfiha } from '../geral/CardEsfiha';
-import Toast from "../geral/Toast";
 
 function Recomendacoes() {
 
