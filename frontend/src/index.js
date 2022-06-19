@@ -9,8 +9,14 @@ import esfihasReducer from './features/esfihas';
 import pedidoReducer from './features/pedido';
 import usuarioReducer from './features/usuario';
 import ingredientesSlice from "./features/ingredientesSlice";
+import axios from 'axios';
 
+const teste = async() => {
+  const oi = (await axios.get('http://localhost:5000/teste')).data;
+  console.log(oi);
+}
 
+teste();
 
 const store = configureStore({
   reducer: {
