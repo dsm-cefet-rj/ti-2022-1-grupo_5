@@ -8,6 +8,20 @@ export default function CardPedido({index}) {
     const pedido = useSelector(state => state.pedido);
     const dispatch = useDispatch();
 
+    function diminuir() {
+        if(pedido.itens[index].qtd === 1) 
+        toast.error(`Esfiha ${pedido.itens[index].nome} excluída!`, {
+            position: "bottom-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+        dispatch(dimunuirQtd(index));
+    }
+
     function excluir() {
         dispatch(excluirItem(index));
         toast.error(`Esfiha ${pedido.itens[index].nome} excluída!`, {
@@ -29,7 +43,7 @@ export default function CardPedido({index}) {
             <p>R$ {pedido.itens[index].valor}</p> 
             <section className="d-flex justify-content-between flex-grow-1 pedido__qtd">
                 <article className="d-flex align-self-end">
-                    <input type="button" className="botao" value="-" onClick={()=> dispatch(dimunuirQtd(index))}/>
+                    <input type="button" className="botao" value="-" onClick={diminuir}/>
                     <input type="number" name="" id="" value={pedido.itens[index].qtd} min="0" onClick={()=>{}}/>
                     <input type="button" className="botao" value="+" onClick={() => dispatch(aumentarQtd(index))}/>
                 </article>
