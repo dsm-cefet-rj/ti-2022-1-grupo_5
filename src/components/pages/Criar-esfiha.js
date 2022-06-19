@@ -172,23 +172,27 @@ const CriarEsfiha = () => {
                                 style={{
                                         textAlign: "center",
                                         marginInline: "auto",
-                                        width: "80%",
-                                        maxWidth: "1000px",
+                                        width: "60%",
+                                        maxWidth: "800px",
                                         marginBottom: "1rem",
                                 }}
                         >
                                 <span
-                                        className="botao card__btn align-self-center"
+                                        className="text-center botao card__btn align-self-center"
                                         style={{
-                                                marginBottom: "0.5rem",
+                                        textAlign: "center",
+                                        marginInline: "auto",
+                                        width: "60%",
+                                        maxWidth: "800px",
+                                        marginBottom: "1rem",
                                         }}
                                         onClick={adicionarItem}
                                 >
-                                        <i className="bi bi-cart-plus-fill botao__icon"></i>
+                                        <i className="text-center bi bi-cart-plus-fill botao__icon"></i>
                                         Comprar
                                 </span>
 
-                                <Link to="/" className="btn btn-danger"
+                                <Link to="/" className="text-center btn btn-danger"
                                 style={{
                                         textAlign: "center",
                                         marginInline: "auto",
