@@ -1,15 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { adicionarInfo, cancelarPedido, realizarPedido } from "../../features/pedido";
+import { cancelarPedido, realizarPedido } from "../../features/pedido";
 import CardPedido from "../geral/CardPedido";
 import ResumoPedido from "../ResumoPedido";
 import * as yup from "yup";
-import { setLocale } from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-setLocale({
+yup.setLocale({
     mixed: {
         required: 'Campo obrigatório'
     }

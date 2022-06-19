@@ -10,12 +10,10 @@ import Login from './components/pages/Login';
 import CriarEsfiha from './components/pages/Criar-esfiha';
 import { getEsfihas } from './features/esfihas';
 import { getIngredientes } from './features/ingredientesSlice';
-import Register from './components/pages/Register';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
-//import Profile from './components/pages/Profile';
+import Cadastro from './components/pages/Cadastro';
 
-export const PedidoContext = createContext();
 
 export default function App() {
 
@@ -41,9 +39,9 @@ export default function App() {
                     </section>
 
                     <section className="menu__section">
-                        <Link to='/Login' className="position-relative">
-                        <span>Login </span>
-                        <i className="bi bi-person"></i>
+                        <Link to='/login' className="dcontent">
+                            <span>Login </span>
+                            <i className="bi bi-person"></i>
                         </Link>
                         <Link to='/pedido' className="position-relative">
                             <i className="bi bi-cart"></i>
@@ -58,7 +56,7 @@ export default function App() {
 
                         <section className="offcanvas-body">
                             <ul className="menu__lista">
-                                <li className="menu__item"><Link to='/Login' onClick={menuCollapse}>Login</Link></li>
+                                <li className="menu__item"><Link to='/login' onClick={menuCollapse}>Login</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-salgadas' onClick={menuCollapse}>Esfihas Salgadas</Link></li>
                                 <li className="menu__item"><Link to='/esfihas-doces' onClick={menuCollapse}>Esfihas Doces</Link></li>
                                 <li className="menu__item"><Link to='/pedido' onClick={menuCollapse}>Pedido</Link></li>
@@ -83,13 +81,13 @@ export default function App() {
             
             <Routes>
                 <Route path='/' element={<Recomendacoes/>}/>
-                <Route path='/Login' element={<Login/>}/>
+                <Route path='/login' element={<Login/>}/>
                 <Route path='/esfihas-salgadas' element={<EsfihasSalgadas/>}/>
                 <Route path='/esfihas-doces' element={<EsfihasDoces/>}/>
                 <Route path='/criar-esfiha' element={<CriarEsfiha/>}/>
                 <Route path='/pedido' element={<Pedido/>}/>
+                <Route path='/cadastro' element={<Cadastro/>}/>
                 <Route path='*' element={<NotFound/>}/>
-                <Route path='/Register' element={<Register/>}/>
                 {/*<Route path='/Profile' element={<Profile/>}/>*/}
             </Routes>
         </BrowserRouter>

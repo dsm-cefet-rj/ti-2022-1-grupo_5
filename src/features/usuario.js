@@ -17,5 +17,4 @@ export const usuarioSlice = createSlice({
     }
 });
 
-// export const { adicionarItem, excluirItem, aumentarQtd, dimunuirQtd, cancelarPedido, adicionarInfo} = pedidoSlice.actions;
 export default usuarioSlice.reducer;

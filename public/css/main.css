@@ -85,6 +85,14 @@ p {
     text-align: justify;
 }
 
+a {
+    text-decoration: none;
+}
+
+a.dcontent {
+    display: contents;
+}
+
 i {
     font-size: 2rem;
 }
@@ -156,6 +164,11 @@ input[type=number] {
 
 .botao--cancelar {
     background-color: var(--vermelho);
+    font-size: 1.3rem;
+}
+
+.botao--criar {
+    background-color: var(--azul-card);
     font-size: 1.3rem;
 }
 

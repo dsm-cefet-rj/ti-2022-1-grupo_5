@@ -1,5 +1,19 @@
 {
-  "usuarios": [],
+  "usuarios": [
+    {
+      "complemento": "",
+      "numero": "10",
+      "endereco": "Rua Adelito Costa",
+      "bairro": "Alcântara",
+      "municipio": "São Gonçalo",
+      "cep": "24711120",
+      "senha": "anVxdWluaGExMjM=",
+      "email": "juquinha@gmail.com",
+      "idade": 18,
+      "nome": "Juquinha",
+      "id": 1
+    }
+  ],
   "esfihas": [
     {
       "id": 1,
@@ -194,5 +208,53 @@
     }
   ],
   "pedidos": [
+    {
+      "itens": [
+        {
+          "id": 2,
+          "tipo": "Salgada",
+          "nome": "Atum",
+          "img": "img/esfiha-atum.png",
+          "valor": 4,
+          "qtd": 1
+        },
+        {
+          "id": 1,
+          "tipo": "Salgada",
+          "nome": "3 Queijos",
+          "img": "img/esfiha-3-queijos.png",
+          "valor": 5,
+          "qtd": 4
+        },
+        {
+          "id": 8,
+          "tipo": "Doce",
+          "nome": "Brigadeiro",
+          "img": "img/esfiha-brigadeiro.png",
+          "valor": 6,
+          "qtd": 4
+        },
+        {
+          "id": 7,
+          "tipo": "Doce",
+          "nome": "Banana",
+          "img": "img/esfiha-banana.png",
+          "valor": 6,
+          "qtd": 1
+        }
+      ],
+      "info": {
+        "cep": "24711120",
+        "municipio": "São Gonçalo",
+        "bairro": "Alcântara",
+        "endereco": "Rua Adelito Costa",
+        "numero": "10",
+        "complemento": "",
+        "pagamento": "pix",
+        "frete": 5,
+        "total": 59
+      },
+      "id": 1
+    }
   ]
 }

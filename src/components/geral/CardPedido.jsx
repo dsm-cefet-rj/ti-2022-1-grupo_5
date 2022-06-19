@@ -27,13 +27,13 @@ export default function CardPedido({index}) {
         <section className="card-body d-flex flex-column">
             <h5 className="card-title">{pedido.itens[index].nome}</h5>
             <p>R$ {pedido.itens[index].valor}</p> 
-            <section className="d-flex justify-content-between pedido__qtd">
-                <article className="d-flex">
+            <section className="d-flex justify-content-between flex-grow-1 pedido__qtd">
+                <article className="d-flex align-self-end">
                     <input type="button" className="botao" value="-" onClick={()=> dispatch(dimunuirQtd(index))}/>
                     <input type="number" name="" id="" value={pedido.itens[index].qtd} min="0" onClick={()=>{}}/>
                     <input type="button" className="botao" value="+" onClick={() => dispatch(aumentarQtd(index))}/>
                 </article>
-                <span className="botao" onClick={excluir}><i className="bi bi-trash3 pedido__qtd__lixo"></i></span>
+                <span className="botao align-self-end" onClick={excluir}><i className="bi bi-trash3 pedido__qtd__lixo"></i></span>
             </section>
         </section>
     </section>
