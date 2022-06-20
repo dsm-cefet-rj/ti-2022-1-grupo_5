@@ -11,12 +11,7 @@ import usuarioReducer from './features/usuario';
 import ingredientesSlice from "./features/ingredientesSlice";
 import axios from 'axios';
 
-const teste = async() => {
-  const oi = (await axios.get('http://localhost:5000/teste')).data;
-  console.log(oi);
-}
-
-teste();
+axios.defaults.baseURL = 'http://localhost:5000';
 
 const store = configureStore({
   reducer: {
