@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const cadastrarUsuario = createAsyncThunk('esfihas/cadastrarUsuario', async(state) => 
-    (await axios.post('http://localhost:3004/usuarios', state)).data
+    //(await axios.post('http://localhost:3004/usuarios', state)).data
+    (await axios.post('/usuarios', state)).data
 );
 
 export const usuarioSlice = createSlice({
