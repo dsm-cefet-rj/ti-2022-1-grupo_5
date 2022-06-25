@@ -30,12 +30,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getIngredientes = createAsyncThunk('ingredientes/getIngredientes', async () =>
-    //(await axios.get('http://localhost:3004/ingredientes')).data
     (await axios.get('/ingredientes')).data
+    //(await axios.get('http://localhost:3004/ingredientes')).data
 );
 
 export const ingredientesSlice = createSlice({
-    name: "ingredient",
+    name: "ingrediente",
     initialState: { salgado: [], doce: [], neutro: [] },
     reducers: {
 

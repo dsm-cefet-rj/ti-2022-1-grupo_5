@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Recheio from "../geral/recheio-esfiha";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,11 +17,13 @@ const CriarEsfiha = () => {
         const ingredientes = useSelector(selectRecheios);
         const recheioEsfiha = useState([1]);
 
-        const getNomeEsfihaFromIngredientes = (ingredientes) => {
+        const ingrediente =  useSelector(state => state.ingrediente);
+
+        const getNomeEsfihaFromIngredientes = (ingrediente) => {
                 let nome = "Esfiha";
 
                 // Remover duplicados, e remover molho da lista
-                const flatIngredientes = [...new Set(ingredientes.flat())].filter(
+                const flatIngredientes = [...new Set(ingrediente.flat())].filter(
                         (id) => id !== 1
                 );
 

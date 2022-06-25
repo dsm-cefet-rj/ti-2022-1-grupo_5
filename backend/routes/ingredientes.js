@@ -1,7 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const Ingredientes = require('../models/ingredientes');
 
 router.get('/', (req, res, next) => {
+
+  Ingredientes.find({})
+    .then((ingredientes) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'application/json');
+      res.json(ingredientes);
+    }, (err) => next(err))
+    .catch((err) => next(err));
 
   res.json([
     {

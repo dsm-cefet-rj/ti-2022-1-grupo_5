@@ -11,6 +11,15 @@ var pedidosRouter = require('./routes/pedidos');
 var ingredientesRouter = require('./routes/ingredientes')
 var usuariosRouter = require('./routes/usuarios')
 
+const mongoose = require('mongoose');
+
+const uri = 'mongodb://localhost:27017/esfihaieie';
+const connect = mongoose.connect(uri);
+
+connect.then((db) => {
+  console.log("Connected correctly to server");
+}, (err) => { console.log(err); });
+
 var app = express();
 
 // view engine setup
