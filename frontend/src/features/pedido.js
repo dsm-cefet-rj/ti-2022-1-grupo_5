@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const realizarPedido = createAsyncThunk('esfihas/realizarPedido', async(state) => 
     (await axios.post('/pedidos', state)).data
@@ -48,6 +49,16 @@ export const pedidoSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(realizarPedido.fulfilled, state => {
+            state = { itens: [], info: {} };
+            toast.success('Pedido finalizado!', {
+                position: "bottom-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             return state;
         })
     }
