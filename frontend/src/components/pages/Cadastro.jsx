@@ -60,7 +60,6 @@ export default function Cadastro() {
   function submitForm(data) {
     const usuario = data;
     delete usuario.confirmaSenha;
-    usuario.senha = btoa(usuario.senha);
     dispatch(cadastrarUsuario(usuario));
   }
 

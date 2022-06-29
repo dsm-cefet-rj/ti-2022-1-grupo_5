@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
+const Usuario = require('../database/models/Usuario');
 
-router.post('/', (req, res, next) => {
-
-    console.log(req.body);
-    res.send('Usuário foi cadastrado');
+router.post('/', async (req, res, next) => {
+    await Usuario.create(req.body);
+    res.status(201).send('Usuário foi cadastrado');
 });
 
 module.exports = router;
