@@ -68,15 +68,12 @@ const CriarEsfiha = () => {
                         );
                         return;
                 } else {
-                        const generate_id = () => {
-                                // Generate a id based on the ingredientes
-                                return crypto.randomUUID();
-                        };
+                        
                         atualizarPreco();
 
                         // Gerar objeto da pizza customizada
                         let esfiha = {
-                                id: generate_id(),
+                                id: 13,
                                 img: "img/personalizadas-salgada.png",
                                 nome: getNomeEsfihaFromIngredientes(ingredientes),
                                 valor: precoTotal,
