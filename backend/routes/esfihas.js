@@ -6,7 +6,10 @@ router.get('/', async (req, res, next) => {
     //console.log(req)
     try {
       const esfiha = await esfihasModel.find()
-
+      if(!esfiha){
+        res.status(422).json({ message: 'As esfihas não foram encontrada!' })
+        return
+       }
       res.status(200).json(esfiha);
     }
     catch (error){
@@ -21,6 +24,10 @@ router.get('/:id', async (req,res) =>{
 
   try {
      const esfiha = await esfihasModel.findOne({id: id})
+     if(!esfiha){
+      res.status(422).json({ message: 'A esfiha não foi encontrada!' })
+      return
+     }
      res.status(200).json(esfiha);
   } catch(error){
     res.status(500).json({error:error});
