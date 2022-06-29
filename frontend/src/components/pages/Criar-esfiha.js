@@ -92,8 +92,7 @@ const CriarEsfiha = () => {
                                 draggable: true,
                                 progress: undefined,
                         });
-                        //dispatch(comprar(esfiha));
-                        console.log(esfiha);
+
                         // Redirecionar para a página de carrinho
                         //createBrowserHistory().push("/carrinho");
                 };
