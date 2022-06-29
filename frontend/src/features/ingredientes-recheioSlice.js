@@ -7,7 +7,6 @@ const ingredientesRecheioSlice = createSlice({
         },
         reducers: {
                 setRecheios: (state, { payload }) => {
-                        console.log(payload);
                         let id = payload.id;
                         let ingredientes = payload.ingredientes;
                         state.recheio[id] = ingredientes;

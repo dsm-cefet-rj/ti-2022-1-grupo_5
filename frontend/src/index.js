@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import criarEsfiha from './features/personalizada-salgada';
+import criarEsfiha from './features/criar-esfiha';
 import ingredientesEsfihaSlice from './features/ingredientes-recheioSlice';
 import esfihasReducer from './features/esfihas';
 import pedidoReducer from './features/pedido';

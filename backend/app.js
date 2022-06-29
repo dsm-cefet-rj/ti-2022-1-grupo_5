@@ -16,8 +16,6 @@ var ingredientesRouter = require('./routes/ingredientes')
 var usuariosRouter = require('./routes/usuarios')
 
 
-//const esfihas= require('./models/esfihas')
-
 var app = express();
 
 
