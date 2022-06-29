@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Recheio from "../geral/recheio-esfiha";
-import { getIngredientes, selectIngredientes} from "../../features/ingredientesSlice";
+import { getIngredientes} from "../../features/ingredientesSlice";
 import { selectRecheios } from "../../features/ingredientes-recheioSlice";
 import { adicionarItem as addCarrinho } from "../../features/pedido";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ const CriarEsfiha = () => {
         // Dispatch do Redux
         const dispatch = useDispatch();
 
-        const ingredientesBD = useSelector(selectIngredientes);
+        const ingredientesBD = useSelector(state => state.ingrediente);
 
         // Variáveis que controlam estados do componente.
         const [precoTotal, setPrecoTotal] = useState(0);
