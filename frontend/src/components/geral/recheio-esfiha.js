@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { ingredientes as ingredientesBD } from "../data";
+import { useDispatch, useSelector} from "react-redux";
 import { setRecheios } from "../../features/ingredientes-recheioSlice";
-import { useDispatch} from "react-redux";
+import { getIngredientes, selectIngredientes } from "../../features/ingredientesSlice";
+
 import "./ingrediente.css";
 
 /* 
 Componente: Recheio
-Descrição:  Componente que renderiza a pizza personalizada
+Descrição:  Componente que renderiza a esfiha personalizada
 */
 const Recheio = (props) => {
         const dispatch = useDispatch();
+
+        const ingredientesBD = useSelector(selectIngredientes);
 
         const [id] = useState(props.id);
         const max_ingredientes = props.max_ingredientes
                 ? props.max_ingredientes
                 : 5;
+        
         // Variáveis que controlam os ingredientes selecionados.
         const [ingredientes, setIngredientes] = useState([]);
 
@@ -48,6 +52,10 @@ const Recheio = (props) => {
                 dispatch(setRecheios(payload));
         };
 
+        useEffect(() => {
+                dispatch(getIngredientes());
+        }, [ingredientes, dispatch]);
+
         // Renderiza o componente.
         return (
                 <>
@@ -55,11 +63,8 @@ const Recheio = (props) => {
                                 <div className="col">
 
                                         <div className="scrollmenu">
-                                                {/*Se estiver no path /criar-esfiha
-                                                Percorre a array de ingredientes filtrando os ingredientes dos tipos Salgado e Neutro.*/}
                                                 
-
-                                                {ingredientesBD/*.filter( (ingrediente) => { return ingrediente.tipo === "Salgado" || ingrediente.tipo === "Neutro" })*/.map((ingrediente) => (
+                                                {ingredientesBD.map((ingrediente) => (
                                                         <div className="ingrediente" key={ingrediente.id}>
                                                                 <p
                                                                         className="form-check-label"

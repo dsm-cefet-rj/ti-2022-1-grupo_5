@@ -11,7 +11,7 @@ import usuarioReducer from './features/usuario';
 import ingredientesSlice from "./features/ingredientesSlice";
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'http://localhost:5000/';
 
 const store = configureStore({
   reducer: {
@@ -20,7 +20,7 @@ const store = configureStore({
       ingredientesRecheio: ingredientesEsfihaSlice,
       esfihas: esfihasReducer,
       pedido: pedidoReducer,
-      ingredient: ingredientesSlice,
+      ingrediente: ingredientesSlice,
   },
 });
 

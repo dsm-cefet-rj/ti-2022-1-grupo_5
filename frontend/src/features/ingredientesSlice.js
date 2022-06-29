@@ -8,20 +8,18 @@ export const getIngredientes = createAsyncThunk('ingredientes/getIngredientes', 
 
 export const ingredientesSlice = createSlice({
     name: "ingrediente",
-    initialState: { salgado: [], doce: [], neutro: [] },
+    initialState: { ingredientes: []},
     reducers: {
 
     },
     extraReducers: (builder) => {
         builder.addCase(getIngredientes.fulfilled, (state, action) => {
-            const ingredientes = action.payload;
-            state.salgado = ingredientes.filter((ingrediente) => ingrediente.tipo === 'Salgado');
-            state.doce = ingredientes.filter((ingrediente) => ingrediente.tipo === 'Doce');
-            state.neutro = ingredientes.filter((ingrediente) => ingrediente.tipo === 'Neutro');
-            return state;
+            state.ingredientes = action.payload;
         })
     }
 
 });
+
+export const selectIngredientes = (state) => state.ingredientesSlice.ingredientes;
 
 export default ingredientesSlice.reducer;

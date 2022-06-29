@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Recheio from "../geral/recheio-esfiha";
 import { useDispatch, useSelector } from "react-redux";
-import { ingredientes as ingredientesBD } from "../data";
+import Recheio from "../geral/recheio-esfiha";
+import { getIngredientes, selectIngredientes} from "../../features/ingredientesSlice";
 import { selectRecheios } from "../../features/ingredientes-recheioSlice";
 import { adicionarItem as addCarrinho } from "../../features/pedido";
 import { toast } from "react-toastify";
@@ -11,13 +11,14 @@ const CriarEsfiha = () => {
         // Dispatch do Redux
         const dispatch = useDispatch();
 
+        const ingredientesBD = useSelector(selectIngredientes);
+
         // Variáveis que controlam estados do componente.
         const [precoTotal, setPrecoTotal] = useState(0);
         const [erro, setErro] = useState("");
         const ingredientes = useSelector(selectRecheios);
         const recheioEsfiha = useState([1]);
 
-        const ingrediente =  useSelector(state => state.ingrediente);
 
         const getNomeEsfihaFromIngredientes = (ingrediente) => {
                 let nome = "Esfiha";
@@ -116,13 +117,14 @@ const CriarEsfiha = () => {
         };
 
         useEffect(() => {
+                dispatch(getIngredientes());
                 if (erro) {
                         setErro("");
                 }
                 else {
                         atualizarPreco();
                 }
-        }, [ingredientes, erro]);
+        }, [ingredientes, erro, ingredientesBD, dispatch]);
 
         // Renderiza a página de criação de pizza.
         return (

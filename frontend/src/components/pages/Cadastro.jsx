@@ -35,7 +35,7 @@ export default function Cadastro() {
         bairro.value = "";
         endereco.value = "";
     }
-}
+  }
 
   const schema = yup.object().shape({
       nome: yup.string().required(),

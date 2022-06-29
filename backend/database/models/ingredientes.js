@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const connectToDataBase = require('../connect')
 
 const ingredientesSchema = new mongoose.Schema({
-    id: {
+    id:{
         type: String,
         required: true,
     },
@@ -23,6 +24,7 @@ const ingredientesSchema = new mongoose.Schema({
     }
 })
 
+
 const IngredientesModel = mongoose.model("ingredientes", ingredientesSchema);
 
-module.exports = IngredientesModel;
+module.exports = {IngredientesModel};
