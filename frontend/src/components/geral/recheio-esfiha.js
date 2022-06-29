@@ -14,7 +14,6 @@ const Recheio = (props) => {
         const dispatch = useDispatch();
         
         const ingredientesBD = useSelector(state => state.ingrediente);
-        console.log(ingredientesBD);
 
         const [id] = useState(props.id);
         const max_ingredientes = props.max_ingredientes
