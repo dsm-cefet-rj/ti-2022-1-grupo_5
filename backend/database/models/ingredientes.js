@@ -1,11 +1,7 @@
-const mongoose = require('mongoose');
+/*const mongoose = require('mongoose');
 const connectToDataBase = require('../connect')
 
 const ingredientesSchema = new mongoose.Schema({
-    id:{
-        type: String,
-        required: true,
-    },
     tipo: {
         type: String,
         required: true,
@@ -27,4 +23,15 @@ const ingredientesSchema = new mongoose.Schema({
 
 const IngredientesModel = mongoose.model("ingredientes", ingredientesSchema);
 
-module.exports = {IngredientesModel};
+module.exports = {IngredientesModel};*/
+
+const mongoose = require('mongoose')
+
+const ingredientes = mongoose.model('ingredientes',{
+    tipo: String,
+    nome: String,
+    img: String,
+    valor: Number,
+})
+
+module.exports = ingredientes

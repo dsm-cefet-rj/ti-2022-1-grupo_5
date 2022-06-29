@@ -26,7 +26,8 @@ export default function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getEsfihas(), getIngredientes());
+        dispatch(getEsfihas());
+        dispatch(getIngredientes());
     }, [dispatch]);
 
     return(

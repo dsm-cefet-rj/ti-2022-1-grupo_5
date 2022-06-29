@@ -1,16 +1,32 @@
 var express = require('express');
 var router = express.Router();
-const IngredientesModel = require('../database/models/ingredientes');
+const ingredientes = require('../database/models/ingredientes');
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res) => {
+    
+  //console.log(req)
+  try {
+    const ingrediente = await ingredientes.find();
 
-  IngredientesModel.find({})
-    .then((ingredientesData) => {
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'application/json');
-      res.json(ingredientesData);
-    }, (err) => next(err))
-    .catch((err) => next(err));
+    res.status(200).json(ingrediente);
+  }
+  catch (error){
+    res.status(500).json({error:error})
+    console.log(error);
+  }
 });
+
+router.get('/:id', async (req,res) =>{
+  const id = req.params.id
+  console.log(id)
+
+  try {
+     const esfiha = await ingredientes.findOne({_id: id})
+     res.status(200).json(esfiha);
+  } catch(error){
+    res.status(500).json({error:error});
+  }
+
+})
 
 module.exports = router;

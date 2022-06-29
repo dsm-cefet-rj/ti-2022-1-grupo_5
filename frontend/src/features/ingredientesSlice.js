@@ -8,18 +8,19 @@ export const getIngredientes = createAsyncThunk('ingredientes/getIngredientes', 
 
 export const ingredientesSlice = createSlice({
     name: "ingrediente",
-    initialState: { ingredientes: []},
+    initialState: [],
     reducers: {
 
     },
     extraReducers: (builder) => {
         builder.addCase(getIngredientes.fulfilled, (state, action) => {
-            state.ingredientes = action.payload;
+            state = action.payload;
+            return state;
         })
     }
 
 });
 
-export const selectIngredientes = (state) => state.ingredientesSlice.ingredientes;
+//export const selectIngredientes = (state) => state.ingredientesSlice.ingredientes;
 
 export default ingredientesSlice.reducer;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { setRecheios } from "../../features/ingredientes-recheioSlice";
-import { getIngredientes, selectIngredientes } from "../../features/ingredientesSlice";
+import { getIngredientes} from "../../features/ingredientesSlice";
 
 import "./ingrediente.css";
 
@@ -12,8 +12,9 @@ Descrição:  Componente que renderiza a esfiha personalizada
 */
 const Recheio = (props) => {
         const dispatch = useDispatch();
-
-        const ingredientesBD = useSelector(selectIngredientes);
+        
+        const ingredientesBD = useSelector(state => state.ingrediente);
+        console.log(ingredientesBD);
 
         const [id] = useState(props.id);
         const max_ingredientes = props.max_ingredientes

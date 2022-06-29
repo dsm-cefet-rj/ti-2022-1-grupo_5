@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Recheio from "../geral/recheio-esfiha";
-import { getIngredientes, selectIngredientes} from "../../features/ingredientesSlice";
+import { getIngredientes} from "../../features/ingredientesSlice";
 import { selectRecheios } from "../../features/ingredientes-recheioSlice";
 import { adicionarItem as addCarrinho } from "../../features/pedido";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ const CriarEsfiha = () => {
         // Dispatch do Redux
         const dispatch = useDispatch();
 
-        const ingredientesBD = useSelector(selectIngredientes);
+        const ingredientesBD = useSelector(state => state.ingrediente);
 
         // Variáveis que controlam estados do componente.
         const [precoTotal, setPrecoTotal] = useState(0);
@@ -68,15 +68,12 @@ const CriarEsfiha = () => {
                         );
                         return;
                 } else {
-                        const generate_id = () => {
-                                // Generate a id based on the ingredientes
-                                return crypto.randomUUID();
-                        };
+                        
                         atualizarPreco();
 
                         // Gerar objeto da pizza customizada
                         let esfiha = {
-                                id: generate_id(),
+                                id: 13,
                                 img: "img/personalizadas-salgada.png",
                                 nome: getNomeEsfihaFromIngredientes(ingredientes),
                                 valor: precoTotal,
