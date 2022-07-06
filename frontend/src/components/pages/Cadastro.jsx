@@ -59,7 +59,7 @@ export default function Cadastro() {
 
   function submitForm(data) {
     const usuario = data;
-    delete usuario.confirmaSenha;
+    //delete usuario.confirmaSenha;
     dispatch(cadastrarUsuario(usuario));
   }
 

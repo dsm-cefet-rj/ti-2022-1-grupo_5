@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export const cadastrarUsuario = createAsyncThunk('usuario/cadastrarUsuario', async(state) => 
-    (await axios.post('/usuarios', state)).data
+    (await axios.post('/usuarios/auth/registro', state)).data
 );
 
 export const usuarioSlice = createSlice({
