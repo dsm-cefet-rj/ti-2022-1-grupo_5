@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 
 const Pedido = mongoose.model('Pedido', {
     info: {
+        data: String,
+        idUsuario: String,
         cep: String,
         municipio: String,
         bairro: String,

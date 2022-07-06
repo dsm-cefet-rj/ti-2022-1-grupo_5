@@ -35,6 +35,12 @@ export default function Pedido() {
             endereco.value = usuario.endereco;
             numero.value = usuario.numero;
             complemento.value = usuario.complemento;
+            cep.focus();
+            municipio.focus();
+            bairro.focus();
+            endereco.focus();
+            numero.focus();
+            complemento.focus();
         }
     });
 
@@ -60,6 +66,9 @@ export default function Pedido() {
     }
 
     const schema = yup.object().shape({
+        data: yup.string().default(function () {
+            return new Date().toISOString().split('T')[0];
+        }),
         cep: yup.string().matches(/\d/, 'Campo obrigatório').matches(/^2\d{7}$/, 'CEP precisa ser do RJ').required(),
         municipio: yup.string().required(),
         bairro: yup.string().required(),
@@ -82,6 +91,7 @@ export default function Pedido() {
         pedidoForm.info.total = pedidoForm.itens.map(item => item.qtd * item.valor ).reduce((valorAnterior, valorAtual) => 
                                 valorAnterior + valorAtual 
                             ,pedidoForm.info.frete);
+        pedidoForm.info.idUsuario = usuario.id;
         dispatch(realizarPedido(pedidoForm));
     }
 
