@@ -52,7 +52,7 @@ const CriarEsfiha = () => {
                 return item;
         };
 
-        // função que adiciona a pizza customizada ao carrinho
+        // função que adiciona a esfiha customizada ao carrinho
         const adicionarItem = () => {
                 if (erro !== "") {
                         document.getElementById(`erro_message`).scrollIntoView({
@@ -68,12 +68,15 @@ const CriarEsfiha = () => {
                         );
                         return;
                 } else {
-                        
+                        const generate_id = () => {
+                                return crypto.randomUUID();
+                        };
+
                         atualizarPreco();
 
-                        // Gerar objeto da pizza customizada
+                        // Gerar objeto da esfiha customizada
                         let esfiha = {
-                                id: 13,
+                                id: generate_id(),
                                 img: "img/personalizadas-salgada.png",
                                 nome: getNomeEsfihaFromIngredientes(ingredientes),
                                 valor: precoTotal,
@@ -81,7 +84,7 @@ const CriarEsfiha = () => {
                                 Recheios: ingredientes,
                                 descricao: "Ingredientes: " + ingredientes.flat().join(", "),
                         };
-                        // Adicionar a pizza customizada ao carrinho
+                        // Adicionar a esfiha customizada ao carrinho
                         dispatch(addCarrinho(esfiha));
                         toast.success(`${esfiha.nome} adicionada!`, {
                                 position: "bottom-center",
@@ -112,8 +115,14 @@ const CriarEsfiha = () => {
                 setPrecoTotal(preco);
         };
 
+        const [ingredientesCache, setIngredientesCache] = useState(false);
+
         useEffect(() => {
-                dispatch(getIngredientes());
+                if (!ingredientesCache) {
+                        dispatch(getIngredientes());
+                        setIngredientesCache(true);
+
+                }
                 if (erro) {
                         setErro("");
                 }
@@ -122,10 +131,9 @@ const CriarEsfiha = () => {
                 }
         }, [ingredientes, erro, ingredientesBD, dispatch]);
 
-        // Renderiza a página de criação de pizza.
+        // Renderiza a página de criação de esfiha.
         return (
                 <>
-                        {/*<MenuNav Atual="criar-pizza" />*/}
                         <form>
                                 <div className="container">
                                         <div className="row">

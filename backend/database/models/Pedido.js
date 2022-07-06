@@ -14,11 +14,12 @@ const Pedido = mongoose.model('Pedido', {
         total: Number
     },
     itens: [{
-        id: Number,
+        id: String,
         tipo: String,
         nome: String,
         img: String,
         valor: Number,
+        qtd: Number,
     }]
 });
 
