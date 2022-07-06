@@ -8,7 +8,18 @@ export const cadastrarUsuario = createAsyncThunk('usuario/cadastrarUsuario', asy
 
 export const usuarioSlice = createSlice({
     name: "usuario",
-    initialState: {},
+    initialState: {
+        nome: "Juquinha",
+        idade: 20,
+        email: "juquinha@gmail.com",
+        senha: "senha123",
+        cep: "24711120",
+        municipio: "São Gonçalo",
+        bairro: "Alcântara",
+        endereco: "Rua Adelito Costa",
+        numero: 10,
+        complemento: null
+    },
     reducers: {
     },
     extraReducers: (builder) => {

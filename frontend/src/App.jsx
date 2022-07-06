@@ -22,6 +22,7 @@ export default function App() {
     }
 
     const itensPedido = useSelector(state => state.pedido.itens);
+    const usuario = useSelector(state => state.usuario);
 
     const dispatch = useDispatch();
 
@@ -41,7 +42,7 @@ export default function App() {
 
                     <section className="menu__section">
                         <Link to='/login' className="dcontent">
-                            <span>Login </span>
+                            <span>{usuario.nome ?? 'Login'}</span>
                             <i className="bi bi-person"></i>
                         </Link>
                         <Link to='/pedido' className="position-relative">

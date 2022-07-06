@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useLayoutEffect } from "react";
 
 yup.setLocale({
     mixed: {
@@ -16,6 +17,26 @@ yup.setLocale({
 
 
 export default function Pedido() {
+
+    const pedido = useSelector(state => state.pedido);
+    const usuario = useSelector(state => state.usuario);
+
+    useLayoutEffect(() => {
+        const cep = document.querySelector('form')?.cep;
+        const municipio = document.querySelector('form')?.municipio;
+        const bairro = document.querySelector('form')?.bairro;
+        const endereco = document.querySelector('form')?.endereco;
+        const numero = document.querySelector('form')?.numero;
+        const complemento = document.querySelector('form')?.complemento;
+        if(pedido.itens.length !== 0) {
+            cep.value = usuario.cep;
+            municipio.value = usuario.municipio;
+            bairro.value = usuario.bairro;
+            endereco.value = usuario.endereco;
+            numero.value = usuario.numero;
+            complemento.value = usuario.complemento;
+        }
+    });
 
     async function preencherEndereco() {
         const cep = document.querySelector('form')['cep'];
@@ -49,7 +70,6 @@ export default function Pedido() {
     });
 
     const dispatch = useDispatch();
-    const pedido = useSelector(state => state.pedido);
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
