@@ -11,7 +11,7 @@ export default function useAuth() {
     const token = localStorage.getItem('token');
 
     if (token) {
-      axios.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${JSON.parse(token)}`;
       setAuthenticated(true);
     }
 
@@ -19,10 +19,11 @@ export default function useAuth() {
   }, []);
   
   async function handleLogin() {
-    const { data: { token } } = await axios.post('/auth/login');
-
+    const { token, nome, _id } = await axios.post('/auth/login');
+    localStorage.setItem('nome', nome);
+    localStorage.setItem('id', _id);
     localStorage.setItem('token', JSON.stringify(token));
-    axios.defaults.headers.Authorization = `Bearer ${token}`;
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     setAuthenticated(true);
     navigate('/');
   }
@@ -30,7 +31,7 @@ export default function useAuth() {
   function handleLogout() {
     setAuthenticated(false);
     localStorage.removeItem('token');
-    axios.defaults.headers.Authorization = undefined;
+    axios.defaults.headers.common["Authorization"] = undefined;
     navigate('/login');
   }
   

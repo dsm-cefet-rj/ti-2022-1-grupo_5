@@ -32,6 +32,9 @@ router.post('/auth/registro', async (req, res, next) => {
     if (!idade) {
         return res.status(422).json({ msg: "A idade é obrigatória!" });
     }
+    if(idade < 18) {
+        return res.status(422).json({ msg: "Precisa ser maior que 18 anos!" });
+    }
     if (!cep) {
         return res.status(422).json({ msg: "O CEP é obrigatório!" });
     }
@@ -98,9 +101,10 @@ router.post("/auth/login", async (req, res) => {
     if(!checkPassword){
         return res.status(422).json({msg : "Senha invalida"})
     }
-    
+
     try {
-        const secret = process.env.secret
+        const secret = process.env.secret;
+        delete user.senha;
         
         const token = jwt.sign(
             {
@@ -108,10 +112,9 @@ router.post("/auth/login", async (req, res) => {
             },
             secret,
             )
-            
             res.status(200).json({ msg: 'Autenticação realizada com sucesso', token, user})
             
-    }catch (err) {
+    }catch (error) {
         console.log(error)
         
         res.status(500).json({

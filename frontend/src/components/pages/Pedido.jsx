@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useLayoutEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 yup.setLocale({
     mixed: {
@@ -20,8 +21,10 @@ export default function Pedido() {
 
     const pedido = useSelector(state => state.pedido);
     const usuario = useSelector(state => state.usuario);
+    const navigate = useNavigate();
 
     useLayoutEffect(() => {
+        if(!(usuario?.nome)) navigate('/login');
         const cep = document.querySelector('form')?.cep;
         const municipio = document.querySelector('form')?.municipio;
         const bairro = document.querySelector('form')?.bairro;
@@ -95,7 +98,13 @@ export default function Pedido() {
         dispatch(realizarPedido(pedidoForm));
     }
 
-    if (pedido.itens.length !== 0) {
+    if(!(usuario?.nome)) {
+        return (
+            <main className="container d-flex align-items-center justify-content-center p-5">
+                <h1>Você precisa estar logado.</h1>
+            </main>
+        );
+    } else if (pedido.itens.length !== 0) {
         return (
             <main className="container pedido py-5">
                 <h2>Pedido</h2>

@@ -3,10 +3,17 @@ import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import "./lan.css";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../features/useAuth"
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { logarUsuario } from "../../features/usuario";
 
 
 export default function Login() {
+
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const schema = yup.object().shape({
     email: yup.string().email("E-mail inválido").required(),
@@ -17,8 +24,9 @@ export default function Login() {
       resolver: yupResolver(schema),
   });
 
-  function submitForm() {
-    console.log('loguei');
+  function submitForm(data) {
+    dispatch(logarUsuario(data));
+    navigate('/');
   }
 
 
