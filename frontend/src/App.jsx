@@ -1,5 +1,5 @@
 import { React, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Recomendacoes from './components/pages/Recomendacoes';
 import EsfihasSalgadas from './components/pages/EsfihasSalgadas';
@@ -22,7 +22,7 @@ export default function App() {
     }
 
     const itensPedido = useSelector(state => state.pedido.itens);
-    const usuario = useSelector(state => state.usuario);
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
 
     const dispatch = useDispatch();
 
@@ -42,7 +42,7 @@ export default function App() {
 
                     <section className="menu__section">
                         <Link to='/login' className="dcontent">
-                            <span>{usuario.nome ?? 'Login'}</span>
+                            <span>{usuario?.nome ?? 'Login'}</span>
                             <i className="bi bi-person"></i>
                         </Link>
                         <Link to='/pedido' className="position-relative">

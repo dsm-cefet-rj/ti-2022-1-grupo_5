@@ -5,13 +5,7 @@ var router = express.Router();
 const Usuario = require('../database/models/Usuario');
 const checkToken = require('../middleware/autentica')
 
-router.post('/', async (req, res, next) => {
-    await Usuario.create(req.body);
-    res.status(201).send('Usuário foi cadastrado');
-});
-
-
-router.post('/auth/registro', async (req, res, next) => {
+router.post('/cadastro', async (req, res, next) => {
     const { nome, email, senha, confirmaSenha, idade, cep, municipio, bairro, endereco, numero, complemento } = req.body;
     
     // validations
@@ -86,7 +80,7 @@ router.post('/auth/registro', async (req, res, next) => {
 });
 
 
-router.post("/auth/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     const {email, senha} = req.body
     //checa se usuario existe
     const user = await Usuario.findOne({email: email})
@@ -99,13 +93,12 @@ router.post("/auth/login", async (req, res) => {
     const checkPassword = await bcrypt.compare(senha, user.senha)
     
     if(!checkPassword){
-        return res.status(422).json({msg : "Senha invalida"})
+        return res.status(422).json({msg : "Senha inválida"})
     }
+    user.senha = ""
 
     try {
         const secret = process.env.secret;
-        delete user.senha;
-        
         const token = jwt.sign(
             {
                 id: user._id,
@@ -122,24 +115,5 @@ router.post("/auth/login", async (req, res) => {
         })
     }
 })
-    
-/** 
- * Private Route
-*/
-
-//router.use(checkToken);
-//
-//router.get("/user", checkToken, async (req, res) => {
-//    const id = req.params.id;
-//    
-//    // check if user exists
-//    const user = await Usuario.findById(id, "-senha");
-//   
-//    if (!user) {
-//        return res.status(404).json({ msg: "Usuário não encontrado!" });
-//    }
-//    
-//    res.status(200).json({ user });
-//});
 
 module.exports = router;

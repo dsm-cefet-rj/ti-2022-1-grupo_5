@@ -20,7 +20,7 @@ yup.setLocale({
 export default function Pedido() {
 
     const pedido = useSelector(state => state.pedido);
-    const usuario = useSelector(state => state.usuario);
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
     const navigate = useNavigate();
 
     useLayoutEffect(() => {

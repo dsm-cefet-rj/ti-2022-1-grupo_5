@@ -3,21 +3,20 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { adicionarItem } from "../../features/pedido";
+import notificacao from "../../features/utils/notificacao";
 
 export function CardEsfiha({esfihas, index}) {
     const dispatch = useDispatch();
+    const usuario = localStorage.usuario;
 
     function comprar() {
-        dispatch(adicionarItem(esfihas[index]));
-        toast.success(`Esfiha ${esfihas[index].nome} adicionada!`, {
-            position: "bottom-center",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        if(usuario) {
+            dispatch(adicionarItem(esfihas[index]));
+            notificacao(true, `Esfiha ${esfihas[index].nome} adicionada!`);
+        }
+        else {
+            notificacao(false, 'Necessário login')
+        }
     }
     
     return(
