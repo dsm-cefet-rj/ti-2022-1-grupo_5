@@ -1,5 +1,6 @@
 var express = require('express');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
 const bcrypt = require('bcrypt');
 var router = express.Router();
 const Usuario = require('../database/models/Usuario');
@@ -29,16 +30,7 @@ router.post('/cadastro', async (req, res, next) => {
     if(idade < 18) {
         return res.status(422).json({ msg: "Precisa ser maior que 18 anos!" });
     }
-    if (!cep) {
-        return res.status(422).json({ msg: "O CEP é obrigatório!" });
-    }
-    if (!municipio) {
-        return res.status(422).json({ msg: "O CEP é obrigatório!" });
-    }
-    if (!bairro) {
-        return res.status(422).json({ msg: "O CEP é obrigatório!" });
-    }
-    if (!endereco) {
+    if (!cep || !municipio || !bairro || !endereco) {
         return res.status(422).json({ msg: "O CEP é obrigatório!" });
     }
     if (!numero) {
@@ -104,8 +96,13 @@ router.post("/login", async (req, res) => {
                 id: user._id,
             },
             secret,
+            {
+                expiresIn: '1d',
+            }
+        )
+            res.status(200).json(
+                { msg: 'Autenticação realizada com sucesso', token, user}
             )
-            res.status(200).json({ msg: 'Autenticação realizada com sucesso', token, user})
             
     }catch (error) {
         console.log(error)
@@ -115,5 +112,18 @@ router.post("/login", async (req, res) => {
         })
     }
 })
+    
+/** 
+ * Private Route
+*/
+
+router.get(
+    "/user", 
+    passport.authenticate('jwt', {session: false}),
+    async (req, res) => {
+        const user = await Usuario.find();
+        res.status(200).json( user );
+    }
+);
 
 module.exports = router;

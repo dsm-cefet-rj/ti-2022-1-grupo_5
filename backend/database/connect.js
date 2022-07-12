@@ -10,14 +10,14 @@ const uri = process.env.MONGODB_URI.replace("<username>", username).replace(
 );
 
 const connectToDataBase = async () => {
-  await mongoose.connect(uri, 
-  (error) => {
-    if (error){
-      return console.log("Ocorreu um erro ao se conectar com o banco de dados.", error)
-    }
-
-    return console.log("Conexão ao banco de dados realizada com sucesso!")
-  })
-}
+  try {
+    await mongoose.connect(uri); 
+    console.log("Conexão ao banco de dados realizada com sucesso!")
+  } catch (error) {
+    console.error(error.message);
+    console.log("Ocorreu um erro ao se conectar com o banco de dados.", error)
+    process.exit(1);
+  }
+};
 
 module.exports = connectToDataBase;
