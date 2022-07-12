@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Recheio from "../geral/recheio-esfiha";
 import { getIngredientes} from "../../features/ingredientesSlice";
 import { selectRecheios } from "../../features/ingredientes-recheioSlice";
 import { adicionarItem as addCarrinho } from "../../features/pedido";
-import { toast } from "react-toastify";
+import notificacao from "../../features/utils/notificacao";
 
 const CriarEsfiha = () => {
         // Dispatch do Redux
         const dispatch = useDispatch();
-
+        const usuario = localStorage.usuario;
+        const navigate = useNavigate();
         const ingredientesBD = useSelector(state => state.ingrediente);
 
         // Variáveis que controlam estados do componente.
@@ -85,19 +86,15 @@ const CriarEsfiha = () => {
                                 descricao: "Ingredientes: " + ingredientes.flat().join(", "),
                         };
                         // Adicionar a esfiha customizada ao carrinho
-                        dispatch(addCarrinho(esfiha));
-                        toast.success(`${esfiha.nome} adicionada!`, {
-                                position: "bottom-center",
-                                autoClose: 3000,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                        });
-
+                        if(usuario) {
+                                dispatch(addCarrinho(esfiha));
+                                notificacao(true, `${esfiha.nome} adicionada!`)
+                        }
+                        else{
+                                notificacao(false, 'Necessário login')
+                        }
                         // Redirecionar para a página de carrinho
-                        //createBrowserHistory().push("/carrinho");
+                        navigate('/pedido');
                 };
 
         };
