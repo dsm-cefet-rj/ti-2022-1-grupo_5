@@ -2,9 +2,16 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const realizarPedido = createAsyncThunk('esfihas/realizarPedido', async(state) => 
-    (await axios.post('/pedidos', state)).data
-);
+export const realizarPedido = createAsyncThunk('esfihas/realizarPedido', async(state) => { 
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post('http://localhost:5000/pedidos', state, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    const data = response.data;
+    return data;
+});
 
 export const pedidoSlice = createSlice({
     name: "pedido",
