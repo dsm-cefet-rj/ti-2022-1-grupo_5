@@ -78,7 +78,7 @@ export default function Pedido() {
         endereco: yup.string().required(),
         numero: yup.string().matches(/\d+/, 'Campo obrigatório').required(),
         complemento: yup.string(),
-        pagamento: yup.string().required()
+        pagamento: yup.string().typeError('Campo obrigatório').required()
     });
 
     const dispatch = useDispatch();

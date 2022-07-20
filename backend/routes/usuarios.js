@@ -98,7 +98,7 @@ router.post("/login", async (req, res) => {
             secret,
             {
                 subject: user.id,
-                expiresIn: '1d',
+                expiresIn: '2h',
             }
         )
             res.status(200).json(
