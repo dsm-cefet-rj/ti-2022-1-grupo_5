@@ -39,10 +39,10 @@ export default function Cadastro() {
 
   const schema = yup.object().shape({
       nome: yup.string().required(),
-      idade: yup.number().min(18, 'Precisa ser maior de 18 anos').max(99, "Idade não permitida").required(),
+      idade: yup.number().typeError('Campo obrigatório').min(18, 'Precisa ser maior de 18 anos').max(120, "Idade não permitida").required(),
       email: yup.string().email('E-mail inválido').required(),
       senha: yup.string().min(6, "Necessário no mínimo 6 dígitos").required(),
-      confirmaSenha: yup.string().oneOf([yup.ref('senha'), null]).required(),
+      confirmaSenha: yup.string().oneOf([yup.ref('senha'), null], "As senhas precisam ser iguais").required(),
       cep: yup.string().matches(/\d/, 'Campo obrigatório').matches(/^2\d{7}$/, 'CEP precisa ser do RJ').required(),
       municipio: yup.string().required(),
       bairro: yup.string().required(),
