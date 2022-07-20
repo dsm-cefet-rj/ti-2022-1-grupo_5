@@ -38,7 +38,7 @@ export default function Cadastro() {
   }
 
   const schema = yup.object().shape({
-      nome: yup.string().required(),
+      nome: yup.string().matches(/^[A-Za-z ]*$/, 'Insira um nome válido').required(),
       idade: yup.number().typeError('Campo obrigatório').min(18, 'Precisa ser maior de 18 anos').max(120, "Idade não permitida").required(),
       email: yup.string().email('E-mail inválido').required(),
       senha: yup.string().min(6, "Necessário no mínimo 6 dígitos").required(),
