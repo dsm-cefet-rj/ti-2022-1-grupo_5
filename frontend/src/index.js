@@ -10,8 +10,13 @@ import pedidoReducer from './features/pedido';
 import usuarioReducer from './features/usuario';
 import ingredientesSlice from "./features/ingredientesSlice";
 import axios from 'axios';
+import notificacao from './features/utils/notificacao';
 
 axios.defaults.baseURL = 'http://localhost:5000/';
+
+axios.interceptors.response.use((res) => res, (error) =>
+  notificacao(false, error.response.data.msg)
+);
 
 const store = configureStore({
   reducer: {

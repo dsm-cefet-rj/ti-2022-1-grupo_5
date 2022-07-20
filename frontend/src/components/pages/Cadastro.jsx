@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { cadastrarUsuario } from "../../features/usuario";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 yup.setLocale({
   mixed: {
@@ -16,8 +15,6 @@ yup.setLocale({
 
 
 export default function Cadastro() {
-
-  const navigate = useNavigate();
 
   async function preencherEndereco() {
     const cep = document.querySelector('form')['cep'];
@@ -63,7 +60,6 @@ export default function Cadastro() {
   function submitForm(data) {
     const usuario = data;
     dispatch(cadastrarUsuario(usuario));
-    navigate('/login');
   }
 
   return (

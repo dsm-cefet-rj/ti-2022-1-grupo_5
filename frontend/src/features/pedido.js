@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
+import notificacao from "./utils/notificacao";
 
 export const realizarPedido = createAsyncThunk('esfihas/realizarPedido', async(state) => { 
     const token = JSON.parse(localStorage.getItem('token'));
@@ -33,7 +34,12 @@ export const pedidoSlice = createSlice({
             return state;
         },
         aumentarQtd: (state, action) => {
-            state.itens[action.payload].qtd++;
+            if (state.itens[action.payload].qtd >= 50)
+            {
+                notificacao(false, "Você atingiu a quantidade máxima permitida!")
+            }else{
+                state.itens[action.payload].qtd++;
+            }
             return state;
         },
         dimunuirQtd: (state, action) => {

@@ -122,37 +122,37 @@ export default function Pedido() {
                         <h4>Entrega</h4>
                         <section className="row mx-5">
                                 <div className="form-floating col-lg-3 col-sm-6 p-2 my-2">
-                                    <input type="text" inputMode="number" maxLength={8} className="form-control" id="cep" placeholder=" " onInput={preencherEndereco} {...register('cep')}/>
+                                    <input type="text" inputMode="number" maxLength={8} className="form-control" id="cep" onChange={()=>{}} placeholder=" " onInput={preencherEndereco} {...register('cep')}/>
                                     <label htmlFor="cep">CEP</label>
                                     <p className="erro">{errors?.cep?.message}</p>
                                 </div>
 
                                 <div className="form-floating col-lg-5 col-sm-6 p-2 my-2">
-                                    <input type="text" className="form-control" id="municipio" placeholder=" " {...register('municipio')}/>
+                                    <input type="text" className="form-control" id="municipio" onChange={()=>{}} placeholder=" " {...register('municipio')}/>
                                     <label htmlFor="municipio">Município</label>
                                     <p className="erro">{errors?.municipio?.message}</p>
                                 </div>
 
                                 <div className="form-floating col-lg-4 col-sm-6 p-2 my-2">
-                                    <input type="text" className="form-control" id="bairro" placeholder=" " {...register('bairro')}/>
+                                    <input type="text" className="form-control" id="bairro" onChange={()=>{}} placeholder=" " {...register('bairro')}/>
                                     <label htmlFor="bairro">Bairro</label>
                                     <p className="erro">{errors?.bairro?.message}</p>
                                 </div>
 
                                 <div className="form-floating col-lg-6 col-sm-6 p-2 my-2">
-                                    <input type="text" className="form-control form-control-mb" id="endereco" placeholder=" " {...register('endereco')}/>
+                                    <input type="text" className="form-control form-control-mb" id="endereco" onChange={()=>{}} placeholder=" " {...register('endereco')}/>
                                     <label htmlFor="endereco">Endereço</label>
                                     <p className="erro">{errors?.endereco?.message}</p>
                                 </div>
 
                                 <div className="form-floating col-lg-2 col-sm-6 p-2 my-2">
-                                    <input type="number" className="form-control" id="numero" placeholder=" " {...register('numero')}/>
+                                    <input type="number" className="form-control" id="numero" onChange={()=>{}} placeholder=" " {...register('numero')}/>
                                     <label htmlFor="numero">Nº</label>
                                     <p className="erro">{errors?.numero?.message}</p>
                                 </div>
 
                                 <div className="form-floating col-lg-4 col-sm-6 p-2 my-2">
-                                    <input type="text" className="form-control" id="complemento" placeholder=" " {...register('complemento')}/>
+                                    <input type="text" className="form-control" id="complemento" onChange={()=>{}} placeholder=" " {...register('complemento')}/>
                                     <label htmlFor="complemento">Complemento</label>
                                     <p className="erro">{errors?.complemento?.message}</p>
                                 </div>
@@ -172,7 +172,7 @@ export default function Pedido() {
                         <div className="form-check">
                             <input className="form-check-input" type="radio" name="pagamento" id="cartao" value="cartao" {...register('pagamento')}/>
                             <label className="form-check-label" htmlFor="cartao">
-                                <p>Cartão</p>
+                                <p>Cartão (presencial)</p>
                             </label>
                         </div>
                         <p className="erro">{errors?.pagamento?.message}</p>

@@ -2,16 +2,15 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import notificacao from "./utils/notificacao";
 
-export const cadastrarUsuario = createAsyncThunk('usuario/cadastrarUsuario', async(state) => 
-    (await axios.post('/usuarios/cadastro', state)).data
-);
+export const cadastrarUsuario = createAsyncThunk('usuario/cadastrarUsuario', async(state) => {
+    const qlq = (await axios.post('/usuarios/cadastro', state)).data;
+    notificacao(true, "Usuário cadastrado!");
+    setTimeout(() => window.location.pathname = '/login', 3000);
+    return qlq;
+});
 
 export const logarUsuario = createAsyncThunk('usuario/logarUsuario', async(state) => {
-    try {
-        return (await axios.post('usuarios/login', state)).data;
-    } catch (error) {
-        notificacao(false, error.response.data.msg);
-    }
+    return (await axios.post('usuarios/login', state)).data;
 });
 
 
@@ -30,7 +29,6 @@ export const usuarioSlice = createSlice({
         builder
         .addCase(cadastrarUsuario.fulfilled, state => {
             state = {};
-            notificacao(true, 'Usuário cadastrado');
             return state;
         })
         .addCase(logarUsuario.fulfilled, (state, action) => {
