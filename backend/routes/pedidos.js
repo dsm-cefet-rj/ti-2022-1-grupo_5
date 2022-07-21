@@ -13,17 +13,15 @@ const passport = require('passport');
 */
 
 router.post('/', function(req, res, next){
-    passport.authenticate('jwt', function(err, pedido, info) {
+    passport.authenticate('jwt', function(err, user, info) {
         if (err) {
             return next(err); //genarete a 500 error
         }
-        if(!pedido){
+        if(!user){
             return res.status(401).json({sucess: false, msg: "Ha! Te peguei, malandro!"})
         }
-        async (req, res) => {
-            await Pedido.create(req.body);
-            res.status(200).send('Pedido realizado');
-        }    
+            Pedido.create(req.body);
+            return res.status(200).send('Pedido realizado'); 
     })(req, res, next);
 });
 
